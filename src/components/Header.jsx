@@ -1,14 +1,47 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
 function Header() {
+  useEffect(() => {
+    const adjustMargin = () => {
+      const containerNavegacion = document.querySelector('.container-navegacion');
+      const imageElement = document.querySelector('.gif-cactustreelabs'); // Asume que la imagen tiene esta clase
+      if (containerNavegacion && imageElement) {
+        const imageRect = imageElement.getBoundingClientRect();
+        containerNavegacion.style.marginTop = `${imageRect.top - 25}px`;
+      }
+    };
+
+    window.addEventListener('resize', adjustMargin);
+    adjustMargin();
+
+    return () => {
+      window.removeEventListener('resize', adjustMargin);
+    };
+  }, []);
+
   return (
-      <nav className="navbar-index">
-        <ul>
-          <li><a href="#projects">PROJECTS</a></li>
-          <li><a href="#art">ART.GALLERY</a></li>
-          <li className="margin-menu-left"><a href="#contact">CONTACT</a></li>
-        </ul>
-      </nav>
+    <nav className="navbar-index">
+      <div className="container-navegacion">
+        <div className="navbar-top">
+          <ul>
+            <div className="navbar-left">
+              <li>
+                <a href="#projects" className="nav-link projects-navbar" data-section-name="PROJECTS">PROJECTS</a>
+              </li>
+              <li>
+                <a href="#art" className="nav-link" data-section-name="ART GALLERY">ART.GALLERY</a>
+              </li>
+            </div>
+            <div className="navbar-right">
+              <li>
+                <a href="#contact" className="nav-link" data-section-name="CONTACT">CONTACT</a>
+              </li>
+            </div>
+          </ul>
+        </div>
+      </div>
+
+    </nav>
   );
 }
 

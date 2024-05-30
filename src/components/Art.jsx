@@ -40,18 +40,8 @@ function Art() {
   ];
 
   return (
+    <>
     <div className="art quintaImagen" id="art">
-
-    
-      <div className="new-photo-link-container">
-        <Link className="photo-link-new" to="/photo">
-          <img className="photo-img-new" src="/img/stills_preview/13.jpg" alt="Art Gallery" />
-          <div className="text-container-new">
-            <h2 className="titulo2TextoPhotoIndex">art.gallery</h2>
-          </div>
-        </Link>
-      </div>
-
       <div id="myCarousel" className="carousel slide" data-bs-ride="carousel">
         <div className="carousel-inner">
           {images.map((image, index) => (
@@ -60,6 +50,10 @@ function Art() {
         </div>
       </div>
     </div>
+    <div className="cuartaImagen"> 
+      <h2 className="titulo2TextoPhotoIndex">ART.GALLERY</h2>
+    </div>
+    </>
   );
 }
 
