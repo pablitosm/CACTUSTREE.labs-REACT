@@ -13,9 +13,6 @@ import Intro from './projects/Intro';
 import Zero from './projects/Zero';
 
 import { Analytics } from "@vercel/analytics/react"
-import { SpeedInsights } from "@vercel/speed-insights/next"
-
-
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './css/styles.css';
@@ -49,7 +46,6 @@ function Main() {
   return (
     <>
 	<Analytics/>
-	<SpeedInsights/>
       {showNavbar && <Navbar />}
       <Routes>
         <Route path="/intro" element={<Intro />} />
