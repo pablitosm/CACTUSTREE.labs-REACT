@@ -259,6 +259,7 @@ nav ul li.active a {
 }
 
 .text-logo-cactustree {
+    z-index: 10;
     font-family: 'Engage', sans-serif;
     font-size: 7.5vw;
     color: red;
@@ -334,7 +335,7 @@ footer p {
 }  */
 
 .link-footer-index {
-    color: var(--color-texto);
+    color: var(--color-formulario);
     text-decoration: none;
     position: relative;
 }
@@ -1196,6 +1197,7 @@ p {
 .ceroImagen {
     width: 100%;
     height: 100vh;
+    background-color: var(--color-oscuro);
 }
 
 .ceroImagen video {
@@ -1205,7 +1207,7 @@ p {
     left: 50%;
     transform: translate(-50%, -50%);
     width: 70vw;
-    z-index: -1;
+
 }
 
 .logoMid {
