@@ -304,6 +304,12 @@ footer p {
     position: relative;
 }
 
+.link-footer-index-description {
+    color: var(--color-navbar);
+    text-decoration: none;
+    position: relative;
+}
+
 .link-footer-index::after {
     content: '';
     position: absolute;
@@ -522,9 +528,14 @@ p {
 
 
 .cuartaImagen {  
-    margin-top: -30px;
-    height: 65vh;
     background-color: var(--color-oscuro);
+    margin-top: -4vw;
+    margin-bottom: -13vw;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: auto;
 }
 
 .quintaImagen{
@@ -1898,4 +1909,10 @@ textarea:hover {
   .navbar-top ul {
     margin: 0;
     padding: 0;
+  }
+
+  .red-dot {
+    margin: 0;
+    padding: 0;
+    color: var(--color-fondo);
   }

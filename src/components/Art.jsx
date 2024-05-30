@@ -51,8 +51,7 @@ function Art() {
       </div>
     </div>
     <div className="cuartaImagen"> 
-      <h2 className="titulo2TextoPhotoIndex">ART.GALLERY</h2>
-    </div>
+    <h2 className="titulo2TextoPhotoIndex">ART<span className="red-dot">.</span>GALLERY</h2>    </div>
     </>
   );
 }

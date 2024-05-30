@@ -22,8 +22,8 @@ function Contact() {
                   is another way to express myself, and I strive to ensure
                   that all my clients are satisfied with the work I do.
                 </p><br />
-                <p>Phone Number: <b><a className="link-footer-index" href="tel:+34692948126">+34 692 94 81 26</a></b></p>
-                <p>Email: <b><a className="link-footer-index" href="mailto:info@cactustreelabs.com">info@cactustreelabs.com</a></b></p>
+                <p>Phone Number: <b><a className="link-footer-index-description" href="tel:+34692948126">+34 692 94 81 26</a></b></p>
+                <p>Email: <b><a className="link-footer-index-description" href="mailto:info@cactustreelabs.com">info@cactustreelabs.com</a></b></p>
               </div>
             </td>
             <td className="rightContent">
