@@ -1201,7 +1201,8 @@ p {
     background-color: var(--color-oscuro);
 }
 
-.ceroImagen video {
+.ceroImagen video,
+.imagenCentro img {
     /* aliena el video al centro */
     position: absolute;
     top: 50%;
@@ -1401,7 +1402,7 @@ textarea:hover {
 .titulo2TextoPhotoIndex {
     width: 100%;
     color: #F4F4DE;
-    font-family: 'Engage', sans-serif;
+    /* font-family: 'Engage', sans-serif; */
     /* font-weight: 700; */
     font-size: 16vw;
     margin: -5vw 0 -2.3vw 0;

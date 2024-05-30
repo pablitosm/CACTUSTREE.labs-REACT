@@ -53,28 +53,12 @@ function Art() {
       </div>
 
       <div id="myCarousel" className="carousel slide" data-bs-ride="carousel">
-        <div className="carousel-indicators">
-          {images.map((image, index) => (
-            <button
-              key={index}
-              type="button"
-              data-bs-target="#myCarousel"
-              data-bs-slide-to={index}
-              className={index === 0 ? 'active' : ''}
-              aria-current={index === 0 ? 'true' : 'false'}
-              aria-label={`Slide ${index + 1}`}
-            ></button>
-          ))}
-        </div>
         <div className="carousel-inner">
           {images.map((image, index) => (
             <div key={index} className={`carousel-item ${index === 0 ? 'active' : ''}`} style={image.style}></div>
           ))}
         </div>
-       
       </div>
-
-
     </div>
   );
 }

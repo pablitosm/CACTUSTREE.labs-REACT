@@ -15,6 +15,7 @@ import Zero from './projects/Zero';
 import Stills from './gallery/Stills';
 
 import { Analytics } from "@vercel/analytics/react"
+import { SpeedInsights } from '@vercel/speed-insights/react';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './css/styles.css';
@@ -47,11 +48,10 @@ function Main() {
 
   return (
     <div className="container-noise">
-	<Analytics/>
-	<div className="noise"></div>
+    <div className="noise"></div>
       {showNavbar && <Navbar />}
       <Routes>
-        <Route path="/intro" element={<Stills />} />
+        <Route path="/intro" element={<Intro />} />
         <Route path="/zero" element={<Zero />} />
         <Route path="/stills" element={<Stills />} />
         <Route path="/" element={
@@ -66,6 +66,8 @@ function Main() {
           </>
         } />
       </Routes>
+      <Analytics/>
+      <SpeedInsights/>
     </div>
   );
 }
