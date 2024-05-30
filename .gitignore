@@ -13,10 +13,6 @@ dist-ssr
 *.local
 .env
 
-public/img
-public/img_webp
-public/media
-
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
