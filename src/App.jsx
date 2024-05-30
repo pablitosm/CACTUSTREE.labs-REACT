@@ -1,0 +1,64 @@
+import React, { useEffect } from 'react';
+import { BrowserRouter as Router, Route, Routes, useLocation } from 'react-router-dom';
+import Header from './components/Header';
+import Projects from './components/Projects';
+import Art from './components/Art';
+import Contact from './components/Contact';
+import Footer from './components/Footer';
+import Navbar from './components/Navbar';
+import FrontPage from './components/FrontPage';
+
+import Intro from './projects/Intro';
+import Zero from './projects/Zero';
+
+import 'bootstrap/dist/css/bootstrap.min.css';
+import './css/styles.css';
+
+function App() {
+  useEffect(() => {
+    const text = document.querySelector('.text');
+    if (text) {
+      text.innerHTML = text.innerText.split('').map((char, i) => {
+        return `<span style="transform: rotate(${i * 11.3}deg)">${char}</span>`;
+      }).join('');
+    }
+  }, []);
+
+  return (
+    <Router>
+      <div>
+        <Header />
+        <Main />
+        <Footer />
+      </div>
+    </Router>
+  );
+}
+
+function Main() {
+  const location = useLocation();
+  const showNavbar = location.pathname !== '/intro' && location.pathname !== '/zero';
+
+  return (
+    <>
+      {showNavbar && <Navbar />}
+      <Routes>
+        <Route path="/intro" element={<Intro />} />
+        <Route path="/zero" element={<Zero />} />
+        <Route path="/" element={
+          <>
+            <FrontPage />
+            <Projects />
+            <Art />
+            <Contact />
+            <div className="inner-cursor"></div>
+            <div className="outer-cursor"></div>
+            <div className="custom-text"></div>
+          </>
+        } />
+      </Routes>
+    </>
+  );
+}
+
+export default App;
