@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { BrowserRouter as Router, Route, Routes, useLocation } from 'react-router-dom';
-// import Header from './components/Header';
+
+import Header from './components/Header';
 import Projects from './components/Projects';
 import Art from './components/Art';
 import Contact from './components/Contact';
@@ -33,7 +34,6 @@ function App() {
   return (
     <Router>
       <div>
-        {/* <Header /> */}
         <CustomCursor />
         <Main />
         <Footer />
@@ -48,6 +48,7 @@ function Main() {
 
   return (
     <div className="container-noise">
+    <Header />
     <div className="noise"></div>
       {showNavbar && <Navbar />}
       <Routes>

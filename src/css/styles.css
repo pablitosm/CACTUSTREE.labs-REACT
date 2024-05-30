@@ -102,25 +102,16 @@ header {
     z-index: 100;
 }
 
-nav {
-    text-align: left;
-    margin-top: 10px;
-    margin-left: 20px;
-}
-
-nav ul {
-    list-style: none;
-    padding: 0;
-    /* margin-left: 13vw;
-    margin-top: 10vh; */
-    display: flex;
+.navbar-index {
+    background-color: var(--color-oscuro);
+    margin: 0;
 }
 
 .navbar-index ul {
+    position: relative;
     list-style: none;
     padding: 0;
-    margin-left: 13vw;
-    margin-top: 10vh;
+    margin: 0;
     display: flex;
 }
 
@@ -134,10 +125,6 @@ nav ul li a {
     font-size: 2.5vh;
     transition: color 0.3s;
 }
-
-/* .margin-menu-left {
-    margin-left: 60%;
-} */
 
 nav ul li.active a {
     color: var(--color-fondo);

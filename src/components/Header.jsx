@@ -2,7 +2,6 @@ import React from 'react';
 
 function Header() {
   return (
-    <header>
       <nav className="navbar-index">
         <ul>
           <li><a href="#projects">PROJECTS</a></li>
@@ -10,7 +9,6 @@ function Header() {
           <li className="margin-menu-left"><a href="#contact">CONTACT</a></li>
         </ul>
       </nav>
-    </header>
   );
 }
 
