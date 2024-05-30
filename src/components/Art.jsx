@@ -1,5 +1,4 @@
 import React from 'react';
-
 import PrimeraImagen from '/img_webp/intro/1.webp';
 import SegundaImagen from '/img_webp/intro/2.webp';
 import TerceraImagen from '/img_webp/intro/3.webp';
@@ -16,10 +15,9 @@ import DecimoterceraImagen from '/img_webp/zero/5.webp';
 import DecimocuartaImagen from '/img_webp/zero/6.webp';
 import DecimoquintaImagen from '/img_webp/zero/7.webp';
 import DecimosextaImagen from '/img_webp/zero/8.webp';
-
+import { Link } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min';
-
 
 function Art() {
   const images = [
@@ -43,6 +41,17 @@ function Art() {
 
   return (
     <div className="art quintaImagen" id="art">
+
+    
+      <div className="new-photo-link-container">
+        <Link className="photo-link-new" to="/photo">
+          <img className="photo-img-new" src="/img/stills_preview/13.jpg" alt="Art Gallery" />
+          <div className="text-container-new">
+            <h2 className="titulo2TextoPhotoIndex">art.gallery</h2>
+          </div>
+        </Link>
+      </div>
+
       <div id="myCarousel" className="carousel slide" data-bs-ride="carousel">
         <div className="carousel-indicators">
           {images.map((image, index) => (
@@ -71,6 +80,8 @@ function Art() {
           <span className="visually-hidden">Next</span>
         </button>
       </div>
+
+
     </div>
   );
 }

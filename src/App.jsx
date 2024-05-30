@@ -12,6 +12,8 @@ import CustomCursor from './js/CustomCursor';
 import Intro from './projects/Intro';
 import Zero from './projects/Zero';
 
+import Stills from './gallery/Stills';
+
 import { Analytics } from "@vercel/analytics/react"
 
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -44,12 +46,14 @@ function Main() {
   const showNavbar = location.pathname !== '/intro' && location.pathname !== '/zero';
 
   return (
-    <>
+    <div className="container-noise">
 	<Analytics/>
+	<div className="noise"></div>
       {showNavbar && <Navbar />}
       <Routes>
-        <Route path="/intro" element={<Intro />} />
+        <Route path="/intro" element={<Stills />} />
         <Route path="/zero" element={<Zero />} />
+        <Route path="/stills" element={<Stills />} />
         <Route path="/" element={
           <>
             <FrontPage />
@@ -62,7 +66,7 @@ function Main() {
           </>
         } />
       </Routes>
-    </>
+    </div>
   );
 }
 

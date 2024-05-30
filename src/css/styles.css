@@ -4,7 +4,7 @@
 html {
     scroll-behavior: smooth;
     /* color: var(--color-texto); */
-    /* cursor: none; */
+    cursor: none;
 }
 
 body {
@@ -13,11 +13,11 @@ body {
 }
 
 body, input, textarea, input[type="submit"] {
-    /* cursor: none !important; */
+    cursor: none !important;
 }
 
 a {
-    /* cursor: none !important; */
+    cursor: none !important;
 }
 
 body.dark {
@@ -48,6 +48,7 @@ body.dark {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    cursor: none;
 }
 
 ::selection {
@@ -155,7 +156,7 @@ nav ul li.active a {
     display: flex;
     flex-direction: column;
     align-items: center;
-    /* cursor: none; */
+    cursor: none;
 }
 
 .bodyAbout {
@@ -1866,4 +1867,17 @@ textarea:hover {
     font-size: 6em;
     color: var(--font-color-blue);
     margin: 0;
+}
+
+.noise::before{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    content: "";
+    opacity: .05;  
+    z-index: 1000;
+    pointer-events: none;
+    background: url(noise.gif) ;
 }
