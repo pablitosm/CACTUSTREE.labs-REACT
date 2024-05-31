@@ -526,6 +526,11 @@ p {
     background-image: url("../img/moments/momento1.jpeg");
 }
 
+.terceraImagen {
+    padding: 15px;
+    background-color: var(--color-oscuro);
+}
+
 
 .cuartaImagen {  
     background-color: var(--color-oscuro);
@@ -540,10 +545,10 @@ p {
 
 .quintaImagen{
     margin: 0;
-    padding: 0;
+    padding: 15px;
     width: 100%;
     z-index: 100;
-    /* background-color: var(--color-oscuro); */
+    background-color: var(--color-oscuro);
     /* text-align: center; */
     /* background-color: orangered; */
 }
@@ -1888,10 +1893,13 @@ textarea:hover {
   }
 
   .navbar-index {
-    display: flex;
+    /* display: flex;
     flex-direction: column;
     justify-content: center;
-    margin: 0;
+    margin: 0; */
+    width: 100%;
+    position: absolute;
+    top: 0;
   }
   
   .projects-navbar {
@@ -1915,4 +1923,20 @@ textarea:hover {
     margin: 0;
     padding: 0;
     color: var(--color-fondo);
+  }
+
+  .projects-section {
+    font-family: 'DELIRIUM NCV', sans-serif;
+    font-size: 20vw;
+    padding: -100px;
+    margin: 0px 0px calc(-7.1vw + 15px) 0px;
+    background-color: var(--color-oscuro);
+  }
+
+  .stills-section {
+    font-family: 'DELIRIUM NCV', sans-serif;
+    font-size: 20vw;
+    padding: -100px;
+    margin: calc(-4.2vw + 15px) 0px calc(-7vw + 15px) 0px;
+    background-color: var(--color-oscuro);
   }

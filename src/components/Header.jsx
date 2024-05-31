@@ -11,10 +11,15 @@ function Header() {
       }
     };
 
-    window.addEventListener('resize', adjustMargin);
-    adjustMargin();
+    const handleLoad = () => {
+      window.addEventListener('resize', adjustMargin);
+      adjustMargin();
+    };
+
+    window.addEventListener('load', handleLoad);
 
     return () => {
+      window.removeEventListener('load', handleLoad);
       window.removeEventListener('resize', adjustMargin);
     };
   }, []);

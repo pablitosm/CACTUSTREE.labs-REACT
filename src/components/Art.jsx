@@ -15,7 +15,6 @@ import DecimoterceraImagen from '/img_webp/zero/5.webp';
 import DecimocuartaImagen from '/img_webp/zero/6.webp';
 import DecimoquintaImagen from '/img_webp/zero/7.webp';
 import DecimosextaImagen from '/img_webp/zero/8.webp';
-import { Link } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min';
 
@@ -42,6 +41,7 @@ function Art() {
   return (
     <>
     <div className="art quintaImagen" id="art">
+      <h2 className='stills-section'>STILLS</h2>
       <div id="myCarousel" className="carousel slide" data-bs-ride="carousel">
         <div className="carousel-inner">
           {images.map((image, index) => (
