@@ -43,7 +43,8 @@ body.dark {
 * {
     /* font-family: 'Montserrat', sans-serif; */
     /* font-family: 'Courier New', Courier, monospace; */
-    font-family: 'Sulphur Point', sans-serif, Arial, Helvetica;
+    /* font-family: 'Sulphur Point', sans-serif, Arial, Helvetica; */
+    font-family: 'Helvetica', sans-serif, Arial;
     box-sizing: border-box;
     margin: 0;
     padding: 0;
@@ -527,7 +528,7 @@ p {
 }
 
 .terceraImagen {
-    padding: 15px;
+    padding: 0px 15px 0px 15px;
     background-color: var(--color-oscuro);
 }
 
@@ -543,9 +544,9 @@ p {
     height: auto;
 }
 
-.quintaImagen{
+.quintaImagen {
     margin: 0;
-    padding: 15px;
+    padding: 0px 15px 0px 15px;
     width: 100%;
     z-index: 100;
     background-color: var(--color-oscuro);
@@ -1405,13 +1406,12 @@ textarea:hover {
 }
 
 .titulo2TextoPhotoIndex {
-    font-family: 'DELIRIUM NCV', sans-serif;
+    font-family: 'DELIRIUM NCV', sans-serif !important;
     font-size: 38vw;
-    padding: 0;
+    margin: calc(-.6vw + 15px) 0px 0px 0px;
     text-align: center;
     transition: color 0.5s ease-in-out;
     z-index: 100;
- 
 }
 
 .textContainerStills {
@@ -1920,6 +1920,7 @@ textarea:hover {
   }
 
   .red-dot {
+    font-family: 'DELIRIUM NCV', sans-serif !important;
     margin: 0;
     padding: 0;
     color: var(--color-fondo);
@@ -1928,8 +1929,7 @@ textarea:hover {
   .projects-section {
     font-family: 'DELIRIUM NCV', sans-serif;
     font-size: 20vw;
-    padding: -100px;
-    margin: 0px 0px calc(-7.1vw + 15px) 0px;
+    margin: calc(-2.3vw) 0px calc(-7.1vw + 15px) -0.4vw;
     background-color: var(--color-oscuro);
   }
 
@@ -1937,6 +1937,6 @@ textarea:hover {
     font-family: 'DELIRIUM NCV', sans-serif;
     font-size: 20vw;
     padding: -100px;
-    margin: calc(-4.2vw + 15px) 0px calc(-7vw + 15px) 0px;
+    margin: calc(-2.4vw + 15px) 0px calc(-7.1vw + 15px) -0.4vw;
     background-color: var(--color-oscuro);
   }
