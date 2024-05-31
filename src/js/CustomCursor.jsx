@@ -9,12 +9,13 @@ const CustomCursor = () => {
     const proyectoUno = document.getElementById("projects1");
     const proyectoDos = document.getElementById("projects2");
     const proyectoTres = document.getElementById("projects3");
+    const cuartaImagen = document.getElementById("gallery");
     const quintaImagen = document.getElementById("art");
 
     let mouseX = 0, mouseY = 0;
     let outerCursorX = 0, outerCursorY = 0;
     let textCursorX = 0, textCursorY = 0;
-    let isOuterCursorVisible = false;
+    // let isOuterCursorVisible = false;
 
     const moveCursor = (e) => {
       mouseX = e.clientX;
@@ -25,7 +26,7 @@ const CustomCursor = () => {
     };
 
     const updateOuterCursor = () => {
-      const deltaX = (mouseX - outerCursorX) * 0.1; // Smaller factor for faster movement
+      const deltaX = (mouseX - outerCursorX) * 0.2; // Smaller factor for faster movement
       const deltaY = (mouseY - outerCursorY) * 0.1;
       outerCursorX += deltaX;
       outerCursorY += deltaY;
@@ -58,12 +59,12 @@ const CustomCursor = () => {
     };
 
     const handleMouseOverLink = () => {
-      isOuterCursorVisible = true;
+      // isOuterCursorVisible = true;
       outerCursor.style.display = "block";
     };
 
     const handleMouseOutLink = () => {
-      isOuterCursorVisible = false;
+      // isOuterCursorVisible = false;
       outerCursor.style.display = "none";
     };
 
@@ -82,6 +83,8 @@ const CustomCursor = () => {
       } else if (isCursorOverElement(e, proyectoTres)) {
         showTextElement("tebay");
       } else if (isCursorOverElement(e, quintaImagen)) {
+        showTextElement("stills");
+      } else if (isCursorOverElement(e, cuartaImagen)) {
         showTextElement("gallery");
       } else {
         hideTextElement();

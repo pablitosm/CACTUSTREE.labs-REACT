@@ -8,6 +8,8 @@ import Contact from './components/Contact';
 import Footer from './components/Footer';
 import Navbar from './components/Navbar';
 import FrontPage from './components/FrontPage';
+import IntroVideo from './components/IntroVideo';
+
 import CustomCursor from './js/CustomCursor';
 
 import Intro from './projects/Intro';
@@ -48,6 +50,7 @@ function Main() {
 
   return (
     <div className="container-noise">
+    <IntroVideo />
     <Header />
     <div className="noise"></div>
       {showNavbar && <Navbar />}

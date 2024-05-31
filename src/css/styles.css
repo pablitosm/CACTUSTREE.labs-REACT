@@ -169,8 +169,14 @@ header {
 
 .textContainerProyecto1 {
     font-size: 2vh;
-    width: 90%;
+    margin: 0 0 0 0;
     text-align: justify;
+    background-color: var(--color-oscuro);
+}
+
+.container-all-intro {
+    padding: 7.5px;
+    background-color: var(--color-oscuro);
 }
 
 .textContainerPhoto {
@@ -235,6 +241,22 @@ header {
     transform: translate(-50%, -50%);
 }
 
+.container-text-intro {
+    height: 10vh;
+}
+
+.text-logo-cactustree-intro {
+    z-index: 1;
+    font-family: 'Engage', sans-serif;
+    font-size: 7vw;
+    color: red;
+    position: absolute;
+    left: 50%;
+    top: 10%;
+    font-style: italic;
+    transform: translate(-50%, -50%);
+
+}
 .mail {
     font-size: 1.8vh;
 }
@@ -271,13 +293,13 @@ header {
 
 footer {
     /* sombra exterior superior */
-    box-shadow: 0px -5px 20px 0px rgba(255,0,0,0.25);
+    box-shadow: 0px -5px 20px 0px rgba(33, 37, 41, 0.5);
     width: 100%;
     height: auto;
-    background-color: var(--color-fondo);
+    background-color: #212529;
     color: var(--color-texto);
     text-align: left;
-    padding: 0 1% 0 1%;
+    padding: 0 15px 0 15px;
     bottom: 0;
     font-size: 2vh;
     display: flex;
@@ -1025,6 +1047,7 @@ p {
 }
 
 .foto3 img {
+    padding: 7.5px;
     width: 100%;
     height: auto;
     display: block;
@@ -1073,12 +1096,6 @@ p {
     display: none;
 } */
 
-.textContainerProyecto1 {
-    padding-top: 100px;
-    padding-bottom: 40px;
-
-}
-
 .hide {
     animation: slide-up 1s ease-out forwards;
 }
@@ -1093,6 +1110,10 @@ p {
         /* opacity: 0; */
     }
 }
+
+  #preloader.no-animation {
+    display: none;
+  }
 
 .no-animation {
     animation: none !important;
@@ -1279,7 +1300,7 @@ p {
 }
 
 .tableIndex td {
-    padding: 20px;
+    padding: 15px;
     /* border: 1px solid red; */
     width: 70%;
 }
@@ -1407,8 +1428,9 @@ textarea:hover {
 
 .titulo2TextoPhotoIndex {
     font-family: 'DELIRIUM NCV', sans-serif !important;
-    font-size: 38vw;
-    margin: calc(-.4rem + 15px) 0px 0px 0px;
+    font-size: 39.5vw;
+    /* margin: calc(-.6vw + 15px) 0px 0px 0px; */
+    padding: 0;
     text-align: center;
     transition: color 0.5s ease-in-out;
     z-index: 100;
@@ -1455,8 +1477,7 @@ textarea:hover {
 }
 
 .textoGrande {
-    font-family: 'ClashDisplay-Semibold';
-    font-size: 3vh;
+    font-size: 2vh;
 }
 
 .textoMid p {
@@ -1510,6 +1531,7 @@ textarea:hover {
     /* border: 1px solid red; */
     width: 10%;
 }
+
 
 .centered-text2 {
     color: var(--color-texto);
@@ -1929,7 +1951,7 @@ textarea:hover {
   .projects-section {
     font-family: 'DELIRIUM NCV', sans-serif;
     font-size: 20vw;
-    margin: calc(-1.5rem) 0px calc(-4.9rem + 15px) -0.4vw;
+    margin: calc(-2.3vw) 0px calc(-7.1vw + 15px) -0.4vw;
     background-color: var(--color-oscuro);
   }
 
@@ -1937,6 +1959,57 @@ textarea:hover {
     font-family: 'DELIRIUM NCV', sans-serif;
     font-size: 20vw;
     padding: -100px;
-    margin: calc(-1.7rem + 15px) 0px calc(-4.9rem + 15px) -0.4vw;
+    margin: calc(-2.4vw + 15px) 0px calc(-7.1vw + 15px) -0.4vw;
     background-color: var(--color-oscuro);
+  }
+
+  .carousel-text {
+    font-family: 'Helvetica', sans-serif, Arial;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    font-size: 16px;
+    color: var(--color-oscuro);
+    transition: all 0.3s ease-in-out;
+    z-index: 10;
+  }
+  
+  .carousel:hover .carousel-text.stills {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  
+  .carousel:hover .carousel-text.view-more {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  
+  .carousel-text.view-more {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  
+  .project-text {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    font-size: 16px;
+    color: white;
+    transition: all 0.3s ease-in-out;
+    z-index: 10;
+  }
+  
+  .foto:hover .project-text.stills, .foto:hover .project-text.zero {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  
+  .foto:hover .project-text.view-more {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  
+  .project-text.view-more {
+    transform: translateY(100%);
+    opacity: 0;
   }

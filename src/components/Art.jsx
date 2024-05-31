@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import PrimeraImagen from '/img_webp/intro/1.webp';
 import SegundaImagen from '/img_webp/intro/2.webp';
 import TerceraImagen from '/img_webp/intro/3.webp';
@@ -38,33 +38,63 @@ function Art() {
     { src: DecimosextaImagen, style: { backgroundImage: `url(${DecimosextaImagen})`, height: '100vh', backgroundSize: 'cover', backgroundPosition: 'center' } },
   ];
 
+  const stillsSectionRef = useRef(null);
+  const containerRef = useRef(null);
+
+  useEffect(() => {
+    const adjustHeight = () => {
+      if (stillsSectionRef.current && containerRef.current) {
+        const textHeight = stillsSectionRef.current.clientHeight;
+        containerRef.current.style.height = `${textHeight}px`;
+      }
+    };
+
+    adjustHeight();
+    window.addEventListener('resize', adjustHeight);
+
+    return () => {
+      window.removeEventListener('resize', adjustHeight);
+    };
+  }, []);
+
   return (
     <>
-    <div className="art quintaImagen" id="art">
-      <h2 className='stills-section'>STILLS</h2>
-      <div id="myCarousel" className="carousel slide" data-bs-ride="carousel">
-      <div className="carousel-indicators">
-        {images.map((image, index) => (
-          <button 
-            key={index} 
-            type="button" 
-            data-bs-target="#myCarousel" 
-            data-bs-slide-to={index} 
-            className={index === 0 ? 'active' : ''} 
-            aria-current={index === 0 ? 'true' : 'false'} 
-            aria-label={`Slide ${index + 1}`}
-          ></button>
-        ))}
-      </div>
-        <div className="carousel-inner">
-          {images.map((image, index) => (
-            <div key={index} className={`carousel-item ${index === 0 ? 'active' : ''}`} style={image.style}></div>
-          ))}
+      <div className="art quintaImagen" id="art">
+        <h2 className="stills-section">STILLS</h2>
+        <div id="myCarousel" className="carousel slide" data-bs-ride="carousel">
+          <div className="carousel-indicators">
+            {images.map((image, index) => (
+              <button 
+                key={index} 
+                type="button" 
+                data-bs-target="#myCarousel" 
+                data-bs-slide-to={index} 
+                className={index === 0 ? 'active' : ''} 
+                aria-current={index === 0 ? 'true' : 'false'} 
+                aria-label={`Slide ${index + 1}`}
+              ></button>
+            ))}
+          </div>
+          <div className="carousel-inner position-relative">
+            <button className="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
+              <span className="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span className="visually-hidden">Previous</span>
+            </button>
+            <button className="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
+              <span className="carousel-control-next-icon" aria-hidden="true"></span>
+              <span className="visually-hidden">Next</span>
+            </button>
+            <div className="carousel-text stills">STILLS CAROUSEL</div>
+            <div className="carousel-text view-more">VIEW MORE &#8677;</div>
+            {images.map((image, index) => (
+              <div key={index} className={`carousel-item ${index === 0 ? 'active' : ''}`} style={image.style}></div>
+            ))}
+          </div>
         </div>
       </div>
-    </div>
-    <div className="cuartaImagen"> 
-    <h2 className="titulo2TextoPhotoIndex">ART<span className="red-dot">.</span>GALLERY</h2>    </div>
+      <div className="cuartaImagen" id='gallery'>
+        <h2 className="titulo2TextoPhotoIndex">ART<span className="red-dot">.</span>GALLERY</h2>
+      </div>
     </>
   );
 }

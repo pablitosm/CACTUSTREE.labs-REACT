@@ -32,11 +32,11 @@ function Contact() {
                 <input type="hidden" name="access_key" value="0761ef7d-af07-4a95-aff0-4ba8b5473cc7" />
                 <input type="hidden" name="subject" value="Formulario de contacto" />
                 <input type="hidden" name="from_name" value="cactustree.labs" />
-                <input type="text" name="nombre" id="nombre" placeholder="Name" autoComplete="given-name" required />
+                <input type="text" name="nombre" id="nombre" placeholder="name" autoComplete="given-name" required />
                 <label htmlFor="email"></label>
-                <input type="email" name="email" id="email" placeholder="Email" autoComplete="email" required />
+                <input type="email" name="email" id="email" placeholder="email" autoComplete="email" required />
                 <label htmlFor="mensaje"></label>
-                <textarea name="mensaje" id="mensaje" placeholder="Message" required></textarea>
+                <textarea name="mensaje" id="mensaje" placeholder="message" required></textarea>
                 <input type="submit" value="Submit" />
                 <p id="mensajeExito" style={{ display: 'none' }}>Form successfully submitted!</p>
               </form>
