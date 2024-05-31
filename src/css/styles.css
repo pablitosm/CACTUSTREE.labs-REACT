@@ -1408,7 +1408,7 @@ textarea:hover {
 .titulo2TextoPhotoIndex {
     font-family: 'DELIRIUM NCV', sans-serif !important;
     font-size: 38vw;
-    margin: calc(-.6vw + 15px) 0px 0px 0px;
+    margin: calc(-.4rem + 15px) 0px 0px 0px;
     text-align: center;
     transition: color 0.5s ease-in-out;
     z-index: 100;
@@ -1929,7 +1929,7 @@ textarea:hover {
   .projects-section {
     font-family: 'DELIRIUM NCV', sans-serif;
     font-size: 20vw;
-    margin: calc(-2.3vw) 0px calc(-7.1vw + 15px) -0.4vw;
+    margin: calc(-1.5rem) 0px calc(-4.9rem + 15px) -0.4vw;
     background-color: var(--color-oscuro);
   }
 
@@ -1937,6 +1937,6 @@ textarea:hover {
     font-family: 'DELIRIUM NCV', sans-serif;
     font-size: 20vw;
     padding: -100px;
-    margin: calc(-2.4vw + 15px) 0px calc(-7.1vw + 15px) -0.4vw;
+    margin: calc(-1.7rem + 15px) 0px calc(-4.9rem + 15px) -0.4vw;
     background-color: var(--color-oscuro);
   }
