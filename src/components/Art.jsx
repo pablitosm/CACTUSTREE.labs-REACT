@@ -60,7 +60,9 @@ function Art() {
   return (
     <>
       <div className="art quintaImagen" id="art">
-        <h2 className="stills-section">STILLS</h2>
+        <div className="stills-section">
+          <img className="stills-section-image" src="/img/stills-text.png" alt="" />
+        </div>
         <div id="myCarousel" className="carousel slide" data-bs-ride="carousel">
           <div className="carousel-indicators">
             {images.map((image, index) => (

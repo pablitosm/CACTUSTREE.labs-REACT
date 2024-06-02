@@ -1971,11 +1971,12 @@ textarea:hover {
   }
 
   .stills-section {
-    font-family: 'DELIRIUM NCV', sans-serif;
-    font-size: 20vw;
-    padding: -100px;
-    margin: calc(-2.4vw + 15px) 0px calc(-7.1vw + 15px) -0.4vw;
-    background-color: var(--color-oscuro);
+    padding: 15px 0 15px 0;
+    width: 30%;
+  }
+
+  .stills-section-image {
+    width: 100%;
   }
 
   .carousel-text {
