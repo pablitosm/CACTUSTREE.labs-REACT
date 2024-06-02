@@ -11,16 +11,26 @@ function Header() {
       }
     };
 
-    const handleLoad = () => {
-      window.addEventListener('resize', adjustMargin);
+    const handleLoadAndResize = () => {
       adjustMargin();
+      window.addEventListener('resize', adjustMargin);
     };
 
-    window.addEventListener('load', handleLoad);
+    window.addEventListener('load', handleLoadAndResize);
+
+    // Usar setInterval para verificar la visibilidad de la imagen periódicamente
+    const intervalId = setInterval(() => {
+      const imageElement = document.querySelector('.gif-cactustreelabs');
+      if (imageElement) {
+        adjustMargin();
+        clearInterval(intervalId);
+      }
+    }, 500); // Verificar cada 500ms
 
     return () => {
-      window.removeEventListener('load', handleLoad);
+      window.removeEventListener('load', handleLoadAndResize);
       window.removeEventListener('resize', adjustMargin);
+      clearInterval(intervalId);
     };
   }, []);
 
@@ -45,7 +55,6 @@ function Header() {
           </ul>
         </div>
       </div>
-
     </nav>
   );
 }

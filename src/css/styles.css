@@ -230,6 +230,7 @@ header {
 }
 
 .text-logo-cactustree {
+    font-weight: 700;
     z-index: 10;
     font-family: 'Engage', sans-serif;
     font-size: 7vw;
@@ -299,7 +300,7 @@ footer {
     background-color: #212529;
     color: var(--color-texto);
     text-align: left;
-    padding: 0 15px 0 15px;
+    padding: 15px 15px 0 15px;
     bottom: 0;
     font-size: 2vh;
     display: flex;
@@ -554,17 +555,6 @@ p {
     background-color: var(--color-oscuro);
 }
 
-
-.cuartaImagen {  
-    background-color: var(--color-oscuro);
-    margin-top: -4vw;
-    margin-bottom: -13vw;
-    padding: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: auto;
-}
 
 .quintaImagen {
     margin: 0;
@@ -945,11 +935,17 @@ p {
 
     .navbar-left {
         margin-left: 10% !important;
-      }
+    }
     
-      .navbar-right {
+    .navbar-right {
         margin-right: 10% !important;
-      }
+    }
+
+    .carousel-control-prev-icon,
+    .carousel-control-next-icon,
+    .carousel-indicators {
+      opacity: 0 !important;
+    }
 }
 
 .headerAbout {
@@ -1229,6 +1225,7 @@ p {
 .ceroImagen video,
 .imagenCentro img {
     /* aliena el video al centro */
+    box-shadow: 0 0 15px 0 rgba(0, 0, 0, .2);
     position: absolute;
     top: 50%;
     left: 50%;
@@ -1426,14 +1423,32 @@ textarea:hover {
     transition: color 0.5s ease-in-out;
 }
 
+.cuartaImagen {  
+    background-color: var(--color-oscuro);
+    padding: 15px;
+    margin: 0;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+}
+
 .titulo2TextoPhotoIndex {
-    font-family: 'DELIRIUM NCV', sans-serif !important;
-    font-size: 39.5vw;
-    /* margin: calc(-.6vw + 15px) 0px 0px 0px; */
-    padding: 0;
+    font-family: 'DELIRIUM NCV', sans-serif;
+    font-weight: 700;
+    text-wrap: wrap;
     text-align: center;
     transition: color 0.5s ease-in-out;
     z-index: 100;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+
+.img-artgallery {
+    width: 100%;
 }
 
 .textContainerStills {
@@ -1942,7 +1957,7 @@ textarea:hover {
   }
 
   .red-dot {
-    font-family: 'DELIRIUM NCV', sans-serif !important;
+    font-family: 'DELIRIUM NCV', sans-serif;
     margin: 0;
     padding: 0;
     color: var(--color-fondo);
@@ -2012,4 +2027,17 @@ textarea:hover {
   .project-text.view-more {
     transform: translateY(100%);
     opacity: 0;
+  }
+
+  .carousel-control-prev-icon,
+  .carousel-control-next-icon,
+  .carousel-indicators {
+    opacity: 0;
+    transition: opacity 0.15s ease-in-out;
+  }
+
+  #myCarousel:hover .carousel-control-prev-icon,
+  #myCarousel:hover .carousel-control-next-icon,
+  #myCarousel:hover .carousel-indicators {
+    opacity: 1;
   }

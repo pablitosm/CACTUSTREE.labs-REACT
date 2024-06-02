@@ -93,7 +93,8 @@ function Art() {
         </div>
       </div>
       <div className="cuartaImagen" id='gallery'>
-        <h2 className="titulo2TextoPhotoIndex">ART<span className="red-dot">.</span>GALLERY</h2>
+        <img className="img-artgallery" src="/img/titulo2textophotoindex.png" alt="" />
+        {/* <h2 className="titulo2TextoPhotoIndex">ART<span className="red-dot">.</span>GALLERY</h2> */}
       </div>
     </>
   );
