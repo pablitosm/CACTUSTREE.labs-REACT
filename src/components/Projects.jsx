@@ -4,7 +4,9 @@ import { Link } from 'react-router-dom';
 function Projects() {
   return (
     <div className="projects terceraImagen" id="projects">
-      <h2 className='projects-section'>PROJECTS</h2>
+      {/* <div className='projects-section'> */}
+        <img className="projects-section-image" src="/img/projects-text.png" alt="" />
+      {/* </div> */}
       <div className="fila" id="contenido3">
         <div className="foto" id="projects1">
           <Link to="/intro">

@@ -1970,13 +1970,15 @@ textarea:hover {
     background-color: var(--color-oscuro);
   }
 
-  .stills-section {
+  .stills-section-image {
+    width: 19.246%;
     padding: 15px 0 15px 0;
-    width: 30%;
+
   }
 
-  .stills-section-image {
-    width: 100%;
+  .projects-section-image {
+    width: 30%;
+    padding: 15px 0 15px 0;
   }
 
   .carousel-text {
