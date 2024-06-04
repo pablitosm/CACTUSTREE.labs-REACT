@@ -1,4 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
+import { Link } from 'react-router-dom';
+
 import PrimeraImagen from '/img_webp/intro/1.webp';
 import SegundaImagen from '/img_webp/intro/2.webp';
 import TerceraImagen from '/img_webp/intro/3.webp';
@@ -15,6 +17,7 @@ import DecimoterceraImagen from '/img_webp/zero/5.webp';
 import DecimocuartaImagen from '/img_webp/zero/6.webp';
 import DecimoquintaImagen from '/img_webp/zero/7.webp';
 import DecimosextaImagen from '/img_webp/zero/8.webp';
+
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min';
 
@@ -63,6 +66,7 @@ function Art() {
         {/* <div className="stills-section"> */}
           <img className="stills-section-image" src="/img/stills-text.png" alt="" />
         {/* </div> */}
+        <Link to="/stills">
         <div id="myCarousel" className="carousel slide" data-bs-ride="carousel">
           <div className="carousel-indicators">
             {images.map((image, index) => (
@@ -93,11 +97,14 @@ function Art() {
             ))}
           </div>
         </div>
+        </Link>
       </div>
-      <div className="cuartaImagen" id='gallery'>
-        <img className="img-artgallery" src="/img/titulo2textophotoindex.png" alt="" />
-        {/* <h2 className="titulo2TextoPhotoIndex">ART<span className="red-dot">.</span>GALLERY</h2> */}
-      </div>
+      <Link to="/photo">
+        <div className="cuartaImagen" id='gallery'>
+          <img className="img-artgallery" src="/img/titulo2textophotoindex.png" alt="" />
+          {/* <h2 className="titulo2TextoPhotoIndex">ART<span className="red-dot">.</span>GALLERY</h2> */}
+        </div>
+      </Link>
     </>
   );
 }

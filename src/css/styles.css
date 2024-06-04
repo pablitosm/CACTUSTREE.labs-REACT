@@ -44,7 +44,7 @@ body.dark {
     /* font-family: 'Montserrat', sans-serif; */
     /* font-family: 'Courier New', Courier, monospace; */
     /* font-family: 'Sulphur Point', sans-serif, Arial, Helvetica; */
-    font-family: 'Helvetica', sans-serif, Arial;
+    font-family: 'JetBrains Mono', sans-serif;
     box-sizing: border-box;
     margin: 0;
     padding: 0;
@@ -171,11 +171,6 @@ header {
     font-size: 2vh;
     margin: 0 0 0 0;
     text-align: justify;
-    background-color: var(--color-oscuro);
-}
-
-.container-all-intro {
-    padding: 7.5px;
     background-color: var(--color-oscuro);
 }
 
@@ -782,7 +777,6 @@ p {
 
     .textContainerProyecto1 {
         font-size: 2vh;
-        width: 90%;
         text-align: justify;
     }
 
@@ -945,6 +939,10 @@ p {
     .carousel-control-next-icon,
     .carousel-indicators {
       opacity: 0 !important;
+    }
+
+    .navbar-top ul {
+        font-size: 14px;
     }
 }
 
@@ -1396,6 +1394,7 @@ textarea:hover {
     font-size: 8vh;
     color: var(--color-texto);
     text-align: center;
+    margin: 0;
 }
 
 .titulo2TextoZero {
@@ -1484,11 +1483,14 @@ textarea:hover {
     text-decoration: none;
 }
 
+.videoIframe {
+    z-index: 1000;
+}
 .pieFoto {
     color: var(--color-pieFoto);
-    text-align: center;
     font-size: 1.8vh;
-    padding-bottom: 6vh;
+    margin-top: 15px;
+    margin-bottom: 15px;
 }
 
 .textoGrande {
@@ -1517,7 +1519,7 @@ textarea:hover {
 .tableIntro td {
     /* border: 1px solid red; */
     width: 60%;
-    padding-top: 20px;
+    padding-top: 15px;
 }
 
 .tableZero {
@@ -1859,6 +1861,10 @@ textarea:hover {
     background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
 }
 
+.content-top-intro {
+    margin: 7.5px;
+}
+
 .post-container {
     padding: 20px;
     margin-left: 15%;
@@ -1909,7 +1915,7 @@ textarea:hover {
     height: 100vh;
     content: "";
     opacity: .05;  
-    z-index: 1000;
+    z-index: 11000;
     pointer-events: none;
     background: url(noise.gif) ;
 }
@@ -1930,10 +1936,6 @@ textarea:hover {
   }
 
   .navbar-index {
-    /* display: flex;
-    flex-direction: column;
-    justify-content: center;
-    margin: 0; */
     width: 100%;
     position: absolute;
     top: 0;
@@ -1947,6 +1949,18 @@ textarea:hover {
     margin-left: 25%;
   }
 
+  .navbar-left-intro {
+    display: flex;
+    margin-left: 7.5px;
+    list-style: none;
+  }
+
+  .navbar-right-intro {
+    display: flex;
+    margin-right: 22.5px;
+    list-style: none;
+  }
+
   .navbar-right {
     margin-right: 25%;
   }
@@ -1954,6 +1968,7 @@ textarea:hover {
   .navbar-top ul {
     margin: 0;
     padding: 0;
+    
   }
 
   .red-dot {
@@ -2043,4 +2058,49 @@ textarea:hover {
   #myCarousel:hover .carousel-control-next-icon,
   #myCarousel:hover .carousel-indicators {
     opacity: 1;
+  }
+
+  .container-all-intro,
+  .container-all-zero {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    padding: 7.5px;
+    background-color: var(--color-oscuro);
+  }
+  
+  .left-align {
+    text-align: left;
+  }
+  
+  .right-align {
+    text-align: right;
+  }
+
+  .container-header-intro,
+  .container-header-zero {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .text-container-intro-text-left,
+  .text-container-zero-text-left {
+    display: flex;
+    width: 25%;
+    text-align: left;
+  }
+  
+  .text-container-intro-text-left img,
+  .text-container-zero-text-left img {
+    width: 100%;
+    margin: 15px 0 0 7.5px;
+  }
+  
+  .text-container-intro-text-right, 
+  .text-container-zero-text-right {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding-right: 7.5px;
+    width: calc(73% + 15px);
   }

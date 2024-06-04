@@ -15,6 +15,7 @@ import CustomCursor from './js/CustomCursor';
 import Intro from './projects/Intro';
 import Zero from './projects/Zero';
 
+import Photo from './gallery/Photo'
 import Stills from './gallery/Stills';
 
 import { Analytics } from "@vercel/analytics/react"
@@ -47,17 +48,19 @@ function App() {
 function Main() {
   const location = useLocation();
   const showNavbar = location.pathname !== '/intro' && location.pathname !== '/zero';
+  const showHeader = location.pathname !== '/intro' && location.pathname !== '/zero' && location.pathname !== '/projects';
 
   return (
     <div className="container-noise">
-    <IntroVideo />
-    <Header />
-    <div className="noise"></div>
+      <IntroVideo />
+      {showHeader && <Header />}
+      <div className="noise"></div>
       {showNavbar && <Navbar />}
       <Routes>
         <Route path="/intro" element={<Intro />} />
         <Route path="/zero" element={<Zero />} />
         <Route path="/stills" element={<Stills />} />
+        <Route path="/photo" element={<Photo />} />
         <Route path="/" element={
           <>
             <FrontPage />

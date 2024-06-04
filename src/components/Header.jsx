@@ -7,7 +7,7 @@ function Header() {
       const imageElement = document.querySelector('.gif-cactustreelabs'); // Asume que la imagen tiene esta clase
       if (containerNavegacion && imageElement) {
         const imageRect = imageElement.getBoundingClientRect();
-        containerNavegacion.style.marginTop = `${imageRect.top - 25}px`;
+        containerNavegacion.style.marginTop = `${imageRect.top - 35}px`;
       }
     };
 
@@ -41,15 +41,15 @@ function Header() {
           <ul>
             <div className="navbar-left">
               <li>
-                <a href="#projects" className="nav-link projects-navbar" data-section-name="PROJECTS">PROJECTS</a>
+                <a href="/#projects" className="nav-link projects-navbar" data-section-name="PROJECTS">PROJECTS</a>
               </li>
               <li>
-                <a href="#art" className="nav-link" data-section-name="ART GALLERY">ART.GALLERY</a>
+                <a href="/#art" className="nav-link" data-section-name="ART GALLERY">ART.GALLERY</a>
               </li>
             </div>
             <div className="navbar-right">
               <li>
-                <a href="#contact" className="nav-link" data-section-name="CONTACT">CONTACT</a>
+                <a href="/#contact" className="nav-link" data-section-name="CONTACT">CONTACT</a>
               </li>
             </div>
           </ul>

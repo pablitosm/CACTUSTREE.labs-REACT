@@ -7,14 +7,11 @@ function Footer() {
         <thead>
           <tr>
             <th><p>CACTUSTREE.labs&#8482;</p></th>
-            <th style={{ textAlign: 'right' }}>
-              {/* Aquí podrías agregar una imagen o enlace si es necesario */}
-            </th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <td colSpan="2" style={{ height: '25px' }}></td>
+            <td colSpan="2"></td>
           </tr>
           <tr>
             <td className="white-footer-index" style={{ fontWeight: 'bold' }}>USEFUL LINKS</td>
