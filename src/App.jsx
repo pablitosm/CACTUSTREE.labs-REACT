@@ -48,7 +48,7 @@ function App() {
 function Main() {
   const location = useLocation();
   const showNavbar = location.pathname !== '/intro' && location.pathname !== '/zero';
-  const showHeader = location.pathname !== '/intro' && location.pathname !== '/zero' && location.pathname !== '/projects';
+  const showHeader = location.pathname !== '/intro' && location.pathname !== '/zero' && location.pathname !== '/projects' && location.pathname !== '/stills';
 
   return (
     <div className="container-noise">
