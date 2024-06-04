@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useCallback, useMemo } from 'react';
 import ColorThief from 'colorthief';
 
 import { Carousel } from 'react-responsive-carousel';
@@ -19,8 +19,8 @@ const imagePaths = [
     '/img/stills_zero_webp/37.webp', '/img/stills_zero_webp/38.webp', '/img/stills_zero_webp/39.webp', '/img/stills_zero_webp/40.webp',
     '/img/stills_zero_webp/41.webp', '/img/stills_zero_webp/42.webp', '/img/stills_zero_webp/43.webp', '/img/stills_zero_webp/44.webp',
     '/img/stills_zero_webp/45.webp', '/img/stills_zero_webp/46.webp', '/img/stills_zero_webp/47.webp', '/img/stills_zero_webp/48.webp',
-    '/img/stills_zero_webp/49.webp', '/img/stills_zero_webp/50.webp', '/img/stills_zero_webp/51.webp', '/img/stills_zero_webp/52.webp',
-    '/img/stills_zero_webp/53.webp', '/img/stills_zero_webp/54.webp', '/img/stills_zero_webp/55.webp', '/img/stills_zero_webp/56.webp',
+    '/img/stills_zero_webp/49.webp', '/img/stills_zero_webp/50.webp', '/img/stills_zero_webp/51.webp', '/img/stills_zero_webp/56.webp',
+    '/img/stills_zero_webp/53.webp', '/img/stills_zero_webp/54.webp', '/img/stills_zero_webp/55.webp', 
     '/img/stills_zero_webp/57.webp', '/img/stills_zero_webp/58.webp', '/img/stills_zero_webp/59.webp',
     '/img_webp/zero/1.webp', '/img_webp/zero/2.webp', '/img_webp/zero/3.webp', '/img_webp/zero/4.webp',
     '/img_webp/zero/5.webp', '/img_webp/zero/6.webp', '/img_webp/zero/7.webp', '/img_webp/zero/8.webp',
@@ -57,85 +57,109 @@ function Stills() {
                 const imgElement = new Image();
                 imgElement.src = img;
                 imgElement.crossOrigin = 'Anonymous';
-                return new Promise((resolve) => {
+                return new Promise((resolve, reject) => {
                     imgElement.onload = () => {
-                        const color = colorThief.getColor(imgElement);
-                        resolve({ img, color });
+                        try {
+                            const color = colorThief.getColor(imgElement);
+                            resolve({ img, color });
+                        } catch (error) {
+                            console.error(`Failed to analyze color for image ${img}`, error);
+                            reject(error);
+                        }
+                    };
+                    imgElement.onerror = () => {
+                        console.error(`Failed to load image ${img}`);
+                        reject(new Error(`Failed to load image ${img}`));
                     };
                 });
             });
 
-            Promise.all(imageColors).then((colors) => {
+            Promise.allSettled(imageColors).then((results) => {
+                const colors = results
+                    .filter((result) => result.status === 'fulfilled')
+                    .map((result) => result.value);
                 setColorData(colors);
+                if (colors.length > 0) {
+                    setSelectedColor(colors[0].color);
+                }
             });
         };
 
         loadImages();
     }, []);
 
-    const handleColorClick = (color) => {
+    const handleColorClick = useCallback((color) => {
         setSelectedColor(color);
-    };
+    }, []);
 
-    const getColorDistance = (color1, color2) => {
+    const getColorDistance = useCallback((color1, color2) => {
         return Math.sqrt(
             (color1[0] - color2[0]) ** 2 +
             (color1[1] - color2[1]) ** 2 +
             (color1[2] - color2[2]) ** 2
         );
-    };
+    }, []);
 
-    const sortedImages = selectedColor
-        ? colorData
+    const maxDistance = useMemo(() => Math.sqrt(255 ** 2 + 255 ** 2 + 255 ** 2), []);
+
+    const sortedImages = useMemo(() => {
+        return colorData
             .slice()
             .sort((a, b) => getColorDistance(a.color, selectedColor) - getColorDistance(b.color, selectedColor))
-            .map((item) => ({ img: item.img, distance: getColorDistance(item.color, selectedColor) }))
-        : images.map((img) => ({ img, distance: 0 }));
+            .map((item) => {
+                const distance = getColorDistance(item.color, selectedColor);
+                const similarity = 1 - (distance / maxDistance);
+                const size = selectedColor ? 150 * (1 + 2 * similarity) : 150;
+                return { img: item.img, size };
+            });
+    }, [colorData, selectedColor, getColorDistance, maxDistance]);
 
-    const topColors = Array.from(new Set(colorData.map((item) => item.color))).slice(0, 32);
+    const topColors = useMemo(() => Array.from(new Set(colorData.map((item) => item.color))).slice(0, 32), [colorData]);
 
     return (
-        <div className="stills-container">
-            <HeaderProjects />
-
-            <div className="container-text-stills">
-                <img className="container-text-stills-image" src="/img/stills-gallery-text.png" alt="" />
+        <>
+            <div className="stills-container-top">
+                <HeaderProjects />
+                <div className="container-text-stills">
+                    <img className="container-text-stills-image" src="/img/stills-text.png" alt="" />
+                </div>
+                <div className="color-picker" style={{ width: '100%' }}>
+                    {topColors.map((color, index) => (
+                        <div
+                            key={index}
+                            className="color-box"
+                            style={{
+                                backgroundColor: `rgb(${color.join(',')})`,
+                                width: `${100 / topColors.length}%`,
+                                height: '50px'
+                            }}
+                            onClick={() => handleColorClick(color)}
+                        />
+                    ))}
+                </div>
+                <div className="scrolling-text">
+                    <p>| CLICK TO SORT BY COLOUR | CLICK TO SORT BY COLOUR | CLICK TO SORT BY COLOUR | CLICK TO SORT BY COLOUR | CLICK TO SORT BY COLOUR | CLICK TO SORT BY COLOUR | CLICK TO SORT BY COLOUR | CLICK TO SORT BY COLOUR | CLICK TO SORT BY COLOUR | CLICK TO SORT BY COLOUR | CLICK TO SORT BY COLOUR | CLICK TO SORT BY COLOUR | CLICK TO SORT BY COLOUR | CLICK TO SORT BY COLOUR | CLICK TO SORT BY COLOUR | CLICK TO SORT BY COLOUR | CLICK TO SORT BY COLOUR | CLICK TO SORT BY COLOUR | CLICK TO SORT BY COLOUR | CLICK TO SORT BY COLOUR</p>
+                </div>
             </div>
-
-            <div className="color-picker" style={{ width: '100%' }}>
-                {topColors.map((color, index) => (
-                    <div
-                        key={index}
-                        className="color-box"
-                        style={{
-                            backgroundColor: `rgb(${color.join(',')})`,
-                            width: `${100 / topColors.length}%`,
-                            height: '50px'
-                        }}
-                        onClick={() => handleColorClick(color)}
-                    />
-                ))}
-            </div>
-
-            <div className="image-collage">
-                {sortedImages.map((item, index) => {
-                    const size = selectedColor ? Math.max(100, 500 - item.distance) : 150; // Adjust size scaling here
-                    return (
+            <div className="stills-container">
+                <div className="image-collage">
+                    {sortedImages.map((item, index) => (
                         <img
                             key={index}
                             src={item.img}
                             alt={`still ${index + 1}`}
                             className="still-image"
+                            loading="lazy"
                             style={{
-                                width: size + 'px',
+                                width: item.size + 'px',
                                 height: 'auto',
                                 margin: '7.5px'
                             }}
                         />
-                    );
-                })}
+                    ))}
+                </div>
             </div>
-        </div>
+        </>
     );
 }
 
