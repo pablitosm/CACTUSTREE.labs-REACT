@@ -22,7 +22,7 @@ const Intro = () => {
             </p>
 
             <p className="textoGrande">ZERØ is a personal project that I was able to carry out
-              thanks to a crowfunding and the collaboration of friends and colleagues.</p>
+              thanks to a <a href="https://www.verkami.com/projects/35958-zero-a-film-only-for-dreamers" target='_blank'>crowfunding</a> and the collaboration of friends and colleagues.</p>
           </div>
         </div>
 

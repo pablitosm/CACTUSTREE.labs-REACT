@@ -64,9 +64,11 @@ function Main() {
         <Route path="/" element={
           <>
             <FrontPage />
-            <Projects />
-            <Art />
-            <Contact />
+            <div className="container-navbar-view">
+              <Projects />
+              <Art />
+              <Contact />
+            </div>
             <div className="inner-cursor"></div>
             <div className="outer-cursor"></div>
             <div className="custom-text"></div>

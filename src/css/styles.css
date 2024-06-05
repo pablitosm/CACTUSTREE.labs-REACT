@@ -2186,7 +2186,7 @@ textarea:hover {
 .text-container-intro-text-left img,
 .text-container-zero-text-left img {
     width: 100%;
-    margin: 15px 0 0 7.5px;
+    padding: 23px 15px 7.5px 7.5px;
 }
 
 .text-container-stills-text-left img {
@@ -2277,8 +2277,19 @@ textarea:hover {
     0% {
         transform: translate(0, 0);
     }
+
     100% {
         transform: translate(-50%, 0);
     }
 }
 
+.sticky {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+.hidden {
+    display: none;
+}

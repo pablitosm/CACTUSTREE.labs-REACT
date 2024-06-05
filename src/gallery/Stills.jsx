@@ -21,9 +21,9 @@ const imagePaths = [
     '/img/stills_zero_webp/45.webp', '/img/stills_zero_webp/46.webp', '/img/stills_zero_webp/47.webp', '/img/stills_zero_webp/48.webp',
     '/img/stills_zero_webp/49.webp', '/img/stills_zero_webp/50.webp', '/img/stills_zero_webp/51.webp', '/img/stills_zero_webp/56.webp',
     '/img/stills_zero_webp/53.webp', '/img/stills_zero_webp/54.webp', '/img/stills_zero_webp/55.webp',
-    '/img/stills_zero_webp/57.webp', '/img/stills_zero_webp/58.webp', '/img/stills_zero_webp/59.webp',
-    '/img_webp/zero/1.webp', '/img_webp/zero/2.webp', '/img_webp/zero/3.webp', '/img_webp/zero/4.webp',
-    '/img_webp/zero/5.webp', '/img_webp/zero/6.webp', '/img_webp/zero/7.webp', '/img_webp/zero/8.webp',
+    '/img/stills_zero_webp/57.webp', '/img/stills_zero_webp/58.webp', '/img/stills_zero_webp/59.webp', '/img/stills_zero_webp/60.webp',
+    '/img_webp/zero/1.webp', '/img_webp/zero/2.webp', '/img_webp/zero/3.webp', '/img_webp/zero/4.webp', '/img/stills_zero_webp/61.webp',
+    '/img_webp/zero/5.webp', '/img_webp/zero/6.webp', '/img_webp/zero/7.webp', '/img_webp/zero/8.webp', '/img/stills_zero_webp/rojo.webp',
     '/img_webp/intro/1.webp', '/img_webp/intro/2.webp', '/img_webp/intro/3.webp', '/img_webp/intro/4.webp',
     '/img_webp/intro/5.webp', '/img_webp/intro/6.webp', '/img_webp/intro/7.webp', '/img_webp/intro/8.webp',
     '/img/stills_preview/25.jpg', '/img/stills_preview/9.jpg', '/img/stills_preview/1.jpg', '/img/stills_preview/2.jpg',
@@ -127,7 +127,7 @@ function Stills() {
             });
     }, [colorData, selectedColor, getColorDistance, maxDistance, windowWidth]);
 
-    const topColors = useMemo(() => Array.from(new Set(colorData.map((item) => item.color))).slice(0, 32), [colorData]);
+    const topColors = useMemo(() => Array.from(new Set(colorData.map((item) => item.color))).slice(0, 69), [colorData]);
 
     return (
         <>
@@ -140,11 +140,8 @@ function Stills() {
                     </div>
 
                     <div className="text-container-stills-text-right">
-                        <p className="pieFoto">(IN THIS SECTION YOU CAN SEE A SERIE OF STILLS MADE FROM MY PROJECTS).
+                        <p className="pieFoto">EACH STILL CAPTURES A UNIQUE AND MEANINGFUL MOMENT, PROVIDING YOU WITH AN EXCLUSIVE GLIMPSE BEHIND THE SCENES. IT OFFERS A PREVIEW OF MY WORK, SHOWCASING THE DEDICATION AND CRAFTSMANSHIP THAT I POUR INTO EVERY PROJECT.
                         </p>
-
-                        <p className="textoGrande">ZERØ is a personal project that I was able to carry out
-                            thanks to a crowfunding and the collaboration of friends and colleagues.</p>
                     </div>
                 </div>
                 <div className="color-picker" style={{ width: '100%' }}>
