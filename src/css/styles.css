@@ -297,15 +297,14 @@ header {
 
 footer {
     /* sombra exterior superior */
-    box-shadow: 0px -5px 20px 0px rgba(33, 37, 41, 0.5);
     width: 100%;
     height: auto;
-    background-color: #212529;
-    color: var(--color-texto);
+    background-color: var(--color-oscuro);
+    color: var(--color-pieFoto);
     text-align: left;
-    padding: 15px 15px 0 15px;
+    padding: 0 15px 0 15px;
     bottom: 0;
-    font-size: 2vh;
+    font-size: 1.8vh;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -326,7 +325,7 @@ footer p {
 }  */
 
 .link-footer-index {
-    color: var(--color-formulario);
+    color: var(--color-pieFoto);
     text-decoration: none;
     position: relative;
 }
@@ -354,16 +353,16 @@ footer p {
 
 .link-footer-index:visited,
 .link-footer-index:active {
-    color: #F4F4DE;
+    color: var(--color-pieFoto);
     text-decoration: none;
 }
 
 .white-footer-index {
-    color: #F4F4DE;
+    color: var(--color-pieFoto);
 }
 
 .rightAlign-footer-index {
-    color: #F4F4DE;
+    color: var(--color-pieFoto);
     text-align: right;
     align-content: right;
 }
@@ -2171,13 +2170,14 @@ textarea:hover {
 }
 
 .container-header-intro,
-.container-header-zero {
+.container-header-zero,
+.container-header-stills {
     display: flex;
-    justify-content: space-between;
 }
 
 .text-container-intro-text-left,
-.text-container-zero-text-left {
+.text-container-zero-text-left,
+.text-container-stills-text-left {
     display: flex;
     width: 25%;
     text-align: left;
@@ -2189,8 +2189,14 @@ textarea:hover {
     margin: 15px 0 0 7.5px;
 }
 
+.text-container-stills-text-left img {
+    width: 100%;
+    padding: 15px 15px 15px 0;
+}
+
 .text-container-intro-text-right,
-.text-container-zero-text-right {
+.text-container-zero-text-right,
+.text-container-stills-text-right {
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
@@ -2217,12 +2223,11 @@ textarea:hover {
     margin: 0;
     display: block;
     flex: 1 1 auto;
-    max-width: calc(100% - 15px);
+    max-width: calc(50% - 15px);
 }
 
 .color-picker {
     display: flex;
-    gap: 10px;
 }
 
 .color-box {
@@ -2250,6 +2255,12 @@ textarea:hover {
     width: 100%;
 }
 
+.container-text-stills-right {
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+}
+
 .scrolling-text {
     white-space: nowrap;
     overflow: hidden;
@@ -2270,3 +2281,4 @@ textarea:hover {
         transform: translate(-50%, 0);
     }
 }
+

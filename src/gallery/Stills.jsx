@@ -3,8 +3,8 @@ import ColorThief from 'colorthief';
 
 import { Carousel } from 'react-responsive-carousel';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
-import HeaderProjects from '../components/HeaderProjects';
 
+import HeaderProjects from '../components/HeaderProjects';
 
 const imagePaths = [
     '/img/stills_zero_webp/1.webp', '/img/stills_zero_webp/2.webp', '/img/stills_zero_webp/3.webp', '/img/stills_zero_webp/4.webp',
@@ -20,7 +20,7 @@ const imagePaths = [
     '/img/stills_zero_webp/41.webp', '/img/stills_zero_webp/42.webp', '/img/stills_zero_webp/43.webp', '/img/stills_zero_webp/44.webp',
     '/img/stills_zero_webp/45.webp', '/img/stills_zero_webp/46.webp', '/img/stills_zero_webp/47.webp', '/img/stills_zero_webp/48.webp',
     '/img/stills_zero_webp/49.webp', '/img/stills_zero_webp/50.webp', '/img/stills_zero_webp/51.webp', '/img/stills_zero_webp/56.webp',
-    '/img/stills_zero_webp/53.webp', '/img/stills_zero_webp/54.webp', '/img/stills_zero_webp/55.webp', 
+    '/img/stills_zero_webp/53.webp', '/img/stills_zero_webp/54.webp', '/img/stills_zero_webp/55.webp',
     '/img/stills_zero_webp/57.webp', '/img/stills_zero_webp/58.webp', '/img/stills_zero_webp/59.webp',
     '/img_webp/zero/1.webp', '/img_webp/zero/2.webp', '/img_webp/zero/3.webp', '/img_webp/zero/4.webp',
     '/img_webp/zero/5.webp', '/img_webp/zero/6.webp', '/img_webp/zero/7.webp', '/img_webp/zero/8.webp',
@@ -34,12 +34,20 @@ const imagePaths = [
     '/img/stills_preview/20.jpg', '/img/stills_preview/21.jpg', '/img/stills_preview/22.jpg', '/img/stills_preview/24.jpg'
 ];
 
+
 function Stills() {
     const [images, setImages] = useState([]);
     const [colorData, setColorData] = useState([]);
     const [selectedColor, setSelectedColor] = useState(null);
+    const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
     useEffect(() => {
+        const handleResize = () => {
+            setWindowWidth(window.innerWidth);
+        };
+
+        window.addEventListener('resize', handleResize);
+
         const loadImages = async () => {
             const promises = imagePaths.map((path) =>
                 fetch(path)
@@ -86,6 +94,10 @@ function Stills() {
         };
 
         loadImages();
+
+        return () => {
+            window.removeEventListener('resize', handleResize);
+        };
     }, []);
 
     const handleColorClick = useCallback((color) => {
@@ -103,16 +115,17 @@ function Stills() {
     const maxDistance = useMemo(() => Math.sqrt(255 ** 2 + 255 ** 2 + 255 ** 2), []);
 
     const sortedImages = useMemo(() => {
+        const baseSize = Math.max(50, windowWidth / 10);
         return colorData
             .slice()
             .sort((a, b) => getColorDistance(a.color, selectedColor) - getColorDistance(b.color, selectedColor))
             .map((item) => {
                 const distance = getColorDistance(item.color, selectedColor);
                 const similarity = 1 - (distance / maxDistance);
-                const size = selectedColor ? 150 * (1 + 2 * similarity) : 150;
+                const size = selectedColor ? Math.max(baseSize, baseSize + 950 * Math.pow(similarity, 5)) : 150; // Ajuste de sensibilidad
                 return { img: item.img, size };
             });
-    }, [colorData, selectedColor, getColorDistance, maxDistance]);
+    }, [colorData, selectedColor, getColorDistance, maxDistance, windowWidth]);
 
     const topColors = useMemo(() => Array.from(new Set(colorData.map((item) => item.color))).slice(0, 32), [colorData]);
 
@@ -120,8 +133,19 @@ function Stills() {
         <>
             <div className="stills-container-top">
                 <HeaderProjects />
-                <div className="container-text-stills">
-                    <img className="container-text-stills-image" src="/img/stills-text.png" alt="" />
+                <div className="container-header-stills">
+
+                    <div className="text-container-stills-text-left">
+                        <img src="/img/stills-text.png" alt="" />
+                    </div>
+
+                    <div className="text-container-stills-text-right">
+                        <p className="pieFoto">(IN THIS SECTION YOU CAN SEE A SERIE OF STILLS MADE FROM MY PROJECTS).
+                        </p>
+
+                        <p className="textoGrande">ZERØ is a personal project that I was able to carry out
+                            thanks to a crowfunding and the collaboration of friends and colleagues.</p>
+                    </div>
                 </div>
                 <div className="color-picker" style={{ width: '100%' }}>
                     {topColors.map((color, index) => (
@@ -131,7 +155,7 @@ function Stills() {
                             style={{
                                 backgroundColor: `rgb(${color.join(',')})`,
                                 width: `${100 / topColors.length}%`,
-                                height: '50px'
+                                height: '40px'
                             }}
                             onClick={() => handleColorClick(color)}
                         />
