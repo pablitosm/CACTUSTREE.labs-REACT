@@ -14,6 +14,7 @@ import CustomCursor from './js/CustomCursor';
 
 import Intro from './projects/Intro';
 import Zero from './projects/Zero';
+import Ski from './projects/ski';
 
 import Photo from './gallery/Photo'
 import Stills from './gallery/Stills';
@@ -59,6 +60,7 @@ function Main() {
       <Routes>
         <Route path="/intro" element={<Intro />} />
         <Route path="/zero" element={<Zero />} />
+        <Route path="/ski" element={<Ski />} />
         <Route path="/stills" element={<Stills />} />
         <Route path="/photo" element={<Photo />} />
         <Route path="/" element={

@@ -38,7 +38,7 @@ function Projects() {
           </Link>
         </div>
         <div className="foto" id="projects3">
-          <Link to="/tebay">
+          <Link to="/ski">
             <div className="imagen1 position-relative">
               <img src="/img/ski5.webp" alt="Intro project" />
               <div className="project-text stills" style={{color : "#0e1111"}}>TEBAY</div>
