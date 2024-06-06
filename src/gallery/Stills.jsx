@@ -8,7 +8,7 @@ import HeaderProjects from '../components/HeaderProjects';
 
 const imagePaths = [
     '/img/stills_zero_webp/1.webp', '/img/stills_zero_webp/2.webp', '/img/stills_zero_webp/3.webp', '/img/stills_zero_webp/4.webp',
-    '/img/stills_zero_webp/5.webp', '/img/stills_zero_webp/6.webp', '/img/stills_zero_webp/7.webp', '/img/stills_zero_webp/8.webp',
+    '/img/stills_zero_webp/5.webp', '/img/stills_zero_webp/7.webp', '/img/stills_zero_webp/8.webp',
     '/img/stills_zero_webp/9.webp', '/img/stills_zero_webp/10.webp', '/img/stills_zero_webp/11.webp', '/img/stills_zero_webp/12.webp',
     '/img/stills_zero_webp/13.webp', '/img/stills_zero_webp/14.webp', '/img/stills_zero_webp/15.webp', '/img/stills_zero_webp/16.webp',
     '/img/stills_zero_webp/17.webp', '/img/stills_zero_webp/18.webp', '/img/stills_zero_webp/19.webp', '/img/stills_zero_webp/20.webp',

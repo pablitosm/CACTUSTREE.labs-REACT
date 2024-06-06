@@ -22,7 +22,14 @@ const Intro = () => {
             </p>
 
             <p className="textoGrande">ZERØ is a personal project that I was able to carry out
-              thanks to a <a href="https://www.verkami.com/projects/35958-zero-a-film-only-for-dreamers" target='_blank'>crowfunding</a> and the collaboration of friends and colleagues.</p>
+              thanks to a <a href="https://www.verkami.com/projects/35958-zero-a-film-only-for-dreamers"
+                target='_blank'
+                style={{
+                  textDecoration: 'underline',
+                  color: '#0e1111'
+                }}>
+                crowfunding
+              </a> and the collaboration of friends and colleagues.</p>
           </div>
         </div>
 
@@ -137,58 +144,32 @@ const Intro = () => {
           </div>
           <br /><br />
 
-          <table id="tableIntro1">
-            <tbody>
-              <tr>
-                <td>
-                  <div className="foto3">
-                    <img src="/img_webp/zero/1.webp" alt="" />
-                  </div>
-                </td>
-                <td>
-                  <div className="foto3">
-                    <img src="/img_webp/zero/2.webp" alt="" />
-                  </div>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <div className="foto3">
-                    <img src="/img_webp/zero/3.webp" alt="" />
-                  </div>
-                </td>
-                <td>
-                  <div className="foto3">
-                    <img src="/img_webp/zero/4.webp" alt="" />
-                  </div>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <div className="foto3">
-                    <img src="/img_webp/zero/5.webp" alt="" />
-                  </div>
-                </td>
-                <td>
-                  <div className="foto3">
-                    <img src="/img_webp/zero/6.webp" alt="" />
-                  </div>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <div className="foto3">
-                    <img src="/img_webp/zero/7.webp" alt="" />
-                  </div>
-                </td>
-                <td>
-                  <div className="foto3">
-                    <img src="/img_webp/zero/8.webp" alt="" />
-                  </div>
-                </td>
-              </tr>
-            </tbody>
-          </table>
+          <div className="grid-container">
+            <div className="foto3">
+              <img src="/img_webp/zero/1.webp" alt="" />
+            </div>
+            <div className="foto3">
+              <img src="/img_webp/zero/2.webp" alt="" />
+            </div>
+            <div className="foto3">
+              <img src="/img_webp/zero/3.webp" alt="" />
+            </div>
+            <div className="foto3">
+              <img src="/img_webp/zero/4.webp" alt="" />
+            </div>
+            <div className="foto3">
+              <img src="/img_webp/zero/5.webp" alt="" />
+            </div>
+            <div className="foto3">
+              <img src="/img_webp/zero/6.webp" alt="" />
+            </div>
+            <div className="foto3">
+              <img src="/img_webp/zero/7.webp" alt="" />
+            </div>
+            <div className="foto3">
+              <img src="/img_webp/zero/8.webp" alt="" />
+            </div>
+          </div>
         </div>
       </div>
 

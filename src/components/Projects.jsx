@@ -36,6 +36,20 @@ function Projects() {
             </div>
           </Link>
         </div>
+        <div className="foto" id="projects3">
+          <Link to="/tebay">
+            <div className="imagen1 position-relative">
+              <img src="/img/ski5.webp" alt="Intro project" />
+              <div className="project-text stills" style={{color : "#0e1111"}}>TEBAY</div>
+              <div className="project-text view-more" style={{color : "#0e1111"}}>VIEW MORE &#8677;</div>
+            </div>
+            <div className="imagen1-hover">
+              <video autoPlay muted loop playsInline style={{ width: '100%' }} onMouseOver={(e) => e.target.play()}>
+                <source src="/media/teaser_ski.mp4" type="video/mp4" />
+              </video>
+            </div>
+          </Link>
+        </div>
       </div>
     </div>
   );

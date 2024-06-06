@@ -104,58 +104,32 @@ const Intro = () => {
           </div>
           <br /><br />
 
-          <table id="tableIntro1">
-            <tbody>
-              <tr>
-                <td>
-                  <div className="foto3">
-                    <img src="/img_webp/intro/1.webp" alt="" />
-                  </div>
-                </td>
-                <td>
-                  <div className="foto3">
-                    <img src="/img_webp/intro/2.webp" alt="" />
-                  </div>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <div className="foto3">
-                    <img src="/img_webp/intro/3.webp" alt="" />
-                  </div>
-                </td>
-                <td>
-                  <div className="foto3">
-                    <img src="/img_webp/intro/4.webp" alt="" />
-                  </div>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <div className="foto3">
-                    <img src="/img_webp/intro/5.webp" alt="" />
-                  </div>
-                </td>
-                <td>
-                  <div className="foto3">
-                    <img src="/img_webp/intro/6.webp" alt="" />
-                  </div>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <div className="foto3">
-                    <img src="/img_webp/intro/7.webp" alt="" />
-                  </div>
-                </td>
-                <td>
-                  <div className="foto3">
-                    <img src="/img_webp/intro/8.webp" alt="" />
-                  </div>
-                </td>
-              </tr>
-            </tbody>
-          </table>
+          <div className="grid-container">
+            <div className="foto3">
+              <img src="/img_webp/intro/1.webp" alt="" />
+            </div>
+            <div className="foto3">
+              <img src="/img_webp/intro/2.webp" alt="" />
+            </div>
+            <div className="foto3">
+              <img src="/img_webp/intro/3.webp" alt="" />
+            </div>
+            <div className="foto3">
+              <img src="/img_webp/intro/4.webp" alt="" />
+            </div>
+            <div className="foto3">
+              <img src="/img_webp/intro/5.webp" alt="" />
+            </div>
+            <div className="foto3">
+              <img src="/img_webp/intro/6.webp" alt="" />
+            </div>
+            <div className="foto3">
+              <img src="/img_webp/intro/7.webp" alt="" />
+            </div>
+            <div className="foto3">
+              <img src="/img_webp/intro/8.webp" alt="" />
+            </div>
+          </div>
         </div>
       </div>
 

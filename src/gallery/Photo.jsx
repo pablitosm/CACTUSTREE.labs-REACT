@@ -40,6 +40,8 @@ import Still21 from '/img/stills_preview/21.jpg';
 import Still22 from '/img/stills_preview/22.jpg';
 import Still24 from '/img/stills_preview/24.jpg';
 
+import HeaderProjects from '../components/HeaderProjects';
+
 const images = [
     PrimeraImagen, SegundaImagen, TerceraImagen, CuartaImagen, QuintaImagen, SextaImagen, SeptimaImagen, OctavaImagen,
     Intro1, Intro2, Intro3, Intro4, Intro5, Intro6, Intro7, Intro8,
@@ -50,21 +52,35 @@ const images = [
 
 function ZeroContent() {
     return (
-        <div id="contenido5">
-            <div className="ceroImagen"></div>
-            <div className="terceraImagen"></div>
-            <table id="tableIntro-stills">
-                {images.map((src, index) => (
-                    <tr key={index}>
-                        <td>
-                            <div className="foto3">
-                                <img src={src} alt={`Image ${index + 1}`} />
-                            </div>
-                        </td>
-                    </tr>
-                ))}
-            </table>
-        </div>
+        <>
+            <HeaderProjects />
+            <div className="gallery-container-top">
+                <HeaderProjects />
+                <div className="container-header-gallery">
+
+                    <div className="text-container-gallery-text-left">
+                        {/* <img className="image-gallery-art" src="/img/art-text.png" alt="" />
+                        <img className="image-gallery-gallery" src="/img/gallery-text.png" alt="" /> */}
+                        <img className="image-artgallery-gallery" src="/img/artgallery-text.png" alt="" />
+                    </div>
+
+                    <div className="text-container-gallery-text-right">
+                        <p className="pieFoto">EACH STILL CAPTURES A UNIQUE AND MEANINGFUL MOMENT, PROVIDING YOU WITH AN EXCLUSIVE GLIMPSE BEHIND THE SCENES. IT OFFERS A PREVIEW OF MY WORK, SHOWCASING THE DEDICATION AND CRAFTSMANSHIP THAT I POUR INTO EVERY PROJECT.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div className="gallery-container-bottom">
+                <div className="container-gallery-image1-top">
+                    <img src="/img/stills_zero_webp/1.webp" alt="" />
+                </div>
+                <div className="container-gallery-image1-bottom">
+                    <p>EACH STILL CAPTURES A UNIQUE AND MEANINGFUL MOMENTEACH STILL CAPTURES A UNIQUE AND MEANINGFUL MOMENTEACH STILL CAPTURES A UNIQUE AND MEANINGFUL MOMENT</p>
+                </div>
+                
+            </div>
+
+        </>
     );
 }
 
