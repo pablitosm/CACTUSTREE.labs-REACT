@@ -1,8 +1,10 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min';
+import Carousel from 'react-multi-carousel';
+import 'react-multi-carousel/lib/styles.css';
 
 function Art() {
   const introImageUrls = Array.from({ length: 8 }, (_, index) => `/img_webp/intro/${index + 1}.webp`);
@@ -17,6 +19,27 @@ function Art() {
       backgroundPosition: 'center',
     },
   }));
+
+  const stillsZeroImages = Array.from({ length: 60 }, (_, index) => `/img/stills_zero_webp/${index + 1}.webp`);
+
+  const responsive = {
+    superLargeDesktop: {
+      breakpoint: { max: 4000, min: 1280 },
+      items: 6
+    },
+    desktop: {
+      breakpoint: { max: 1280, min: 760 },
+      items: 2
+    },
+    tablet: {
+      breakpoint: { max: 760, min: 464 },
+      items: 1
+    },
+    mobile: {
+      breakpoint: { max: 464, min: 0 },
+      items: 1
+    }
+  };
 
   const stillsSectionRef = useRef(null);
   const containerRef = useRef(null);
@@ -58,12 +81,12 @@ function Art() {
               ))}
             </div>
             <div className="carousel-inner position-relative">
-              <button className="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
-                <span className="carousel-control-prev-icon" aria-hidden="true"></span>
+              <button className="carousel-control-prev custom-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
+                <span className="carousel-control-prev-icon custom-icon" aria-hidden="true"></span>
                 <span className="visually-hidden">Previous</span>
               </button>
-              <button className="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
-                <span className="carousel-control-next-icon" aria-hidden="true"></span>
+              <button className="carousel-control-next custom-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
+                <span className="carousel-control-next-icon custom-icon" aria-hidden="true"></span>
                 <span className="visually-hidden">Next</span>
               </button>
               <div className="carousel-text stills">STILLS CAROUSEL</div>
@@ -84,12 +107,38 @@ function Art() {
         <div className="cuartaImagen" id='gallery'>
           <img className="img-artgallery" src="/img/artgallery-text.png" alt="" />
         </div>
-        <div className="container-carousel-bottom">
-          <img src="/img/stills_zero_webp/1.webp" alt="ola" />
-        </div>
       </Link>
+      <div className="container-carousel-bottom">
+        <Carousel
+          responsive={responsive}
+          showDots={false}
+          infinite={true}
+          arrows={true}
+          autoSlide={2000}
+          customLeftArrow={<CustomLeftArrow />}
+          customRightArrow={<CustomRightArrow />}
+        >
+          {stillsZeroImages.map((src, index) => (
+            <div key={index} style={{ padding: '7.5px', position: 'relative', width: '100%', paddingTop: '56.25%' }}>
+              <img src={src} alt={`Stills Zero ${index + 1}`} style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', objectFit: 'cover' }} />
+            </div>
+          ))}
+        </Carousel>
+      </div>
     </>
   );
 }
+
+const CustomLeftArrow = ({ onClick }) => (
+  <button className="custom-arrow custom-left-arrow" onClick={onClick}>
+    &#10094;
+  </button>
+);
+
+const CustomRightArrow = ({ onClick }) => (
+  <button className="custom-arrow custom-right-arrow" onClick={onClick}>
+    &#10095;
+  </button>
+);
 
 export default Art;

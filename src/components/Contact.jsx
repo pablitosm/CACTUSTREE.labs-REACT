@@ -1,9 +1,34 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 function Contact() {
+  const [formStatus, setFormStatus] = useState('');
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    const form = e.target;
+    const formData = new FormData(form);
+
+    try {
+      const response = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        body: formData
+      });
+
+      if (response.ok) {
+        setFormStatus('FORM SUCCESSFULLY SUBMITTED!');
+        form.reset(); // Clear form after successful submission
+      } else {
+        setFormStatus('ERROR SUBMITTING FORM. PLEASE TRY AGAIN.');
+      }
+    } catch (error) {
+      setFormStatus('ERROR SUBMITTING FORM. PLEASE TRY AGAIN.');
+    }
+  };
+
   return (
     <div className="contact sextaImagen" id="contact">
-      <hr style={{marginLeft:'15px', marginRight: '15px'}}/>
+      <hr style={{ marginLeft: '15px', marginRight: '15px' }} />
       <div className="bottom-content-contact" style={{ padding: '0 15px 15px 15px', width: '100%' }}>
         <div className="centered-text2">
           <h2 className="aboutMe">ABOUT ME</h2>
@@ -16,7 +41,7 @@ function Contact() {
       </div>
       <div className="top-content-contact rightContent" style={{ padding: '0 15px 0 15px', width: '100%' }}>
         <h2>CONTACT</h2>
-        <form id="miFormulario" method="POST" action="https://api.web3forms.com/submit">
+        <form id="miFormulario" method="POST" onSubmit={handleSubmit}>
           <input type="hidden" name="access_key" value="0761ef7d-af07-4a95-aff0-4ba8b5473cc7" />
           <input type="hidden" name="subject" value="Formulario de contacto" />
           <input type="hidden" name="from_name" value="cactustree.labs" />
@@ -26,8 +51,8 @@ function Contact() {
           <label htmlFor="mensaje"></label>
           <textarea name="mensaje" id="mensaje" placeholder="MESSAGE" required></textarea>
           <input type="submit" value="SUBMIT" />
-          <p id="mensajeExito" style={{ display: 'none' }}>FORM SUCCESFULLY SUBMITTED!</p>
         </form>
+        {formStatus && <p id="mensajeExito" style={{padding: 0, margin: 0}}>{formStatus}</p>}
       </div>
     </div>
   );

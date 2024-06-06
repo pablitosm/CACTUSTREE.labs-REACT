@@ -22,7 +22,7 @@ const imagePaths = [
     '/img/stills_zero_webp/49.webp', '/img/stills_zero_webp/50.webp', '/img/stills_zero_webp/51.webp', '/img/stills_zero_webp/56.webp',
     '/img/stills_zero_webp/53.webp', '/img/stills_zero_webp/54.webp', '/img/stills_zero_webp/55.webp',
     '/img/stills_zero_webp/57.webp', '/img/stills_zero_webp/58.webp', '/img/stills_zero_webp/59.webp', '/img/stills_zero_webp/60.webp',
-    '/img_webp/zero/1.webp', '/img_webp/zero/2.webp', '/img_webp/zero/3.webp', '/img_webp/zero/4.webp', '/img/stills_zero_webp/61.webp',
+    '/img_webp/zero/1.webp', '/img_webp/zero/2.webp', '/img_webp/zero/3.webp', '/img_webp/zero/4.webp', '/img/stills_zero_webp/6.webp',
     '/img_webp/zero/5.webp', '/img_webp/zero/6.webp', '/img_webp/zero/7.webp', '/img_webp/zero/8.webp', '/img/stills_zero_webp/rojo.webp',
     '/img_webp/intro/1.webp', '/img_webp/intro/2.webp', '/img_webp/intro/3.webp', '/img_webp/intro/4.webp',
     '/img_webp/intro/5.webp', '/img_webp/intro/6.webp', '/img_webp/intro/7.webp', '/img_webp/intro/8.webp',

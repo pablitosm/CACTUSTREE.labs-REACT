@@ -800,6 +800,12 @@ p {
         transition: transform 0.5s ease, filter 0.5s ease;
     }
 
+    .custom-arrow,
+    .custom-left-arrow,
+    .custom-right-arrow {
+        display: none;
+    }
+
     .navbar {
         display: none !important;
     }
@@ -1221,14 +1227,14 @@ textarea {
 }
 
 input[type="submit"] {
-    background-color: red;
+    background-color: #0e1111;
     color: var(--color-oscuro);
     transition: background-color 0.3s ease;
 }
 
 input,
 textarea {
-    margin: 1.3vh 0;
+    margin: 15px 0;
 }
 
 input[type="submit"]:hover {
@@ -2098,3 +2104,23 @@ textarea:hover {
     height: 20vh;
     width: 100%;
 }
+
+.custom-arrow {
+    background: none;
+    border: none;
+    color: var(--color-oscuro);
+    font-size: 30px;
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1;
+  }
+  
+  .custom-left-arrow {
+    left: 15px;
+  }
+  
+  .custom-right-arrow {
+    right: 15px;
+  }
