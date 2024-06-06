@@ -102,7 +102,6 @@ const Intro = () => {
               </tbody>
             </table>
           </div>
-          <br /><br />
 
           <div className="grid-container">
             <div className="foto3">

@@ -6,6 +6,7 @@ function Projects() {
     <div className="projects terceraImagen" id="projects">
       {/* <div className='projects-section'> */}
         <img className="projects-section-image" src="/img/projects-text.png" alt="" />
+        <hr />
       {/* </div> */}
       <div className="fila" id="contenido3">
         <div className="foto" id="projects1">

@@ -41,6 +41,7 @@ function Art() {
     <>
       <div className="art quintaImagen" id="art">
         <img className="stills-section-image" src="/img/stills-text.png" alt="" />
+        <hr />
         <Link to="/stills">
           <div id="myCarousel" className="carousel slide" data-bs-ride="carousel">
             <div className="carousel-indicators">
@@ -81,11 +82,11 @@ function Art() {
           </div>
         </div>
         <div className="cuartaImagen" id='gallery'>
-
           <img className="img-artgallery" src="/img/artgallery-text.png" alt="" />
         </div>
-
-
+        <div className="container-carousel-bottom">
+          <img src="/img/stills_zero_webp/1.webp" alt="ola" />
+        </div>
       </Link>
     </>
   );

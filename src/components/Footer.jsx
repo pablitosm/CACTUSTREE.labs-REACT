@@ -65,12 +65,7 @@ function Footer() {
     <footer className="footerIndex">
       <table className="table-footer-index">
         <tbody>
-          <tr>
-            <td colSpan="2"></td>
-          </tr>
-          <tr>
-            <td colSpan="2" style={{ height: '15px' }}></td>
-          </tr>
+
           <tr>
             <td>
               <a 
@@ -118,9 +113,6 @@ function Footer() {
                 <span>{youtubeText}</span>
               </a>
             </td>
-          </tr>
-          <tr>
-            <td colSpan="2" style={{ height: '15px' }}></td>
           </tr>
         </tbody>
       </table>
