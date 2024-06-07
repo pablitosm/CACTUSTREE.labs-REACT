@@ -17,7 +17,7 @@ function Contact() {
 
       if (response.ok) {
         setFormStatus('FORM SUCCESSFULLY SUBMITTED!');
-        form.reset(); // Clear form after successful submission
+        form.reset();
       } else {
         setFormStatus('ERROR SUBMITTING FORM. PLEASE TRY AGAIN.');
       }
@@ -42,7 +42,7 @@ function Contact() {
       <div className="top-content-contact rightContent" style={{ padding: '0 15px 0 15px', width: '100%' }}>
         <h2>CONTACT</h2>
         <form id="miFormulario" method="POST" onSubmit={handleSubmit}>
-          <input type="hidden" name="access_key" value="0761ef7d-af07-4a95-aff0-4ba8b5473cc7" />
+          <input type="hidden" name="access_key" value={import.meta.env.VITE_WEB3FORMS_KEY} /> 
           <input type="hidden" name="subject" value="Formulario de contacto" />
           <input type="hidden" name="from_name" value="cactustree.labs" />
           <input type="text" name="nombre" id="nombre" placeholder="NAME" autoComplete="given-name" required />

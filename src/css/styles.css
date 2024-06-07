@@ -812,7 +812,6 @@ p {
     .pieFoto,
     .textoGrande {
         margin-top: 7.5px !important;
-        /* padding-left: 7.5px !important; */
     }
 
     .textoGrande {
@@ -821,6 +820,8 @@ p {
 
     .pieFotoStills {
         padding: 0 !important;
+        margin-left: 0 !important;
+        text-align: justify;
     }
 
     .text-container-stills-text-left img {
