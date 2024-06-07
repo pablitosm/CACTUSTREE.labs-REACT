@@ -15,7 +15,6 @@ const CustomCursor = () => {
     let mouseX = 0, mouseY = 0;
     let outerCursorX = 0, outerCursorY = 0;
     let textCursorX = 0, textCursorY = 0;
-    // let isOuterCursorVisible = false;
 
     const moveCursor = (e) => {
       mouseX = e.clientX;
@@ -26,7 +25,7 @@ const CustomCursor = () => {
     };
 
     const updateOuterCursor = () => {
-      const deltaX = (mouseX - outerCursorX) * 0.2; // Smaller factor for faster movement
+      const deltaX = (mouseX - outerCursorX) * 0.2;
       const deltaY = (mouseY - outerCursorY) * 0.1;
       outerCursorX += deltaX;
       outerCursorY += deltaY;
@@ -38,7 +37,7 @@ const CustomCursor = () => {
     };
 
     const updateTextElement = () => {
-      const deltaX = (mouseX - textCursorX) * 0.05; // Larger factor for slower movement
+      const deltaX = (mouseX - textCursorX) * 0.05;
       const deltaY = (mouseY - textCursorY) * 0.05;
       textCursorX += deltaX;
       textCursorY += deltaY;
@@ -59,12 +58,10 @@ const CustomCursor = () => {
     };
 
     const handleMouseOverLink = () => {
-      // isOuterCursorVisible = true;
       outerCursor.style.display = "block";
     };
 
     const handleMouseOutLink = () => {
-      // isOuterCursorVisible = false;
       outerCursor.style.display = "none";
     };
 

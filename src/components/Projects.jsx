@@ -13,14 +13,11 @@ function Projects() {
       }
     };
 
-    // Initialize the correct image based on the initial class of the body
     handleClassChange();
 
-    // Create a mutation observer to watch for changes to the class attribute on the body
     const observer = new MutationObserver(handleClassChange);
     observer.observe(document.body, { attributes: true, attributeFilter: ['class'] });
 
-    // Cleanup the observer on component unmount
     return () => observer.disconnect();
   }, []);
 
@@ -57,8 +54,8 @@ function Projects() {
           <Link to="/ski">
             <div className="imagen1 position-relative">
               <img src="/img/ski5.webp" alt="Intro project" />
-              <div className="project-text stills" style={{color : "#0e1111"}}>TEBAY</div>
-              <div className="project-text view-more" style={{color : "#0e1111"}}>VIEW MORE &#8677;</div>
+              <div className="project-text stills" style={{ color: "#0e1111" }}>TEBAY</div>
+              <div className="project-text view-more" style={{ color: "#0e1111" }}>VIEW MORE &#8677;</div>
             </div>
             <div className="imagen1-hover">
               <img src="/media/teaser_ski.gif" alt="GIF" />

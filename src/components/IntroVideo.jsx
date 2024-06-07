@@ -11,7 +11,7 @@ const IntroVideo = () => {
       setShowIntro(true);
       setTimeout(() => {
         setShowIntro(false);
-        Cookies.set('introShown', 'true', { expires: 1 }); // Cookie expires in 1 day
+        Cookies.set('introShown', 'true', { expires: 1 });
       }, 5000);
     } else {
       setHideImmediately(true);

@@ -77,12 +77,12 @@ function Footer() {
     setYoutubeText('YOUTUBE');
   };
 
-  const handleGalleryMouseEnter = () => { // Cambia 'handleStillsMouseEnter' a 'handleGalleryMouseEnter'
-    setGalleryText('GALLE3Y'); // Cambia 'ST1LLS' a 'GALLE3Y'
+  const handleGalleryMouseEnter = () => {
+    setGalleryText('GALLE3Y');
   };
 
-  const handleGalleryMouseLeave = () => { // Cambia 'handleStillsMouseLeave' a 'handleGalleryMouseLeave'
-    setGalleryText('GALLERY'); // Cambia 'STILLS' a 'GALLERY'
+  const handleGalleryMouseLeave = () => {
+    setGalleryText('GALLERY');
   };
 
   const handleDarkModeClick = () => {
@@ -148,18 +148,19 @@ function Footer() {
               <a
                 className="link-footer-index"
                 href="#art"
-                onMouseEnter={handleGalleryMouseEnter} // Cambia 'handleStillsMouseEnter' a 'handleGalleryMouseEnter'
-                onMouseLeave={handleGalleryMouseLeave} // Cambia 'handleStillsMouseLeave' a 'handleGalleryMouseLeave'
+                onMouseEnter={handleGalleryMouseEnter}
+                onMouseLeave={handleGalleryMouseLeave}
               >
                 {galleryText}
               </a>
             </td>
-            <td 
-              className="rightAlign-footer-index" 
+            <td
+              className="rightAlign-footer-index"
               onClick={handleDarkModeClick}
             >
               DARK MODE: {darkMode ? 'ON' : 'OFF'}
-            </td>          </tr>
+            </td>
+          </tr>
         </tbody>
       </table>
     </footer>

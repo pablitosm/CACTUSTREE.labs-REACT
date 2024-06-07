@@ -42,7 +42,7 @@ function Contact() {
       <div className="top-content-contact rightContent" style={{ padding: '0 15px 0 15px', width: '100%' }}>
         <h2>CONTACT</h2>
         <form id="miFormulario" method="POST" onSubmit={handleSubmit}>
-          <input type="hidden" name="access_key" value={import.meta.env.VITE_WEB3FORMS_KEY} /> 
+          <input type="hidden" name="access_key" value={import.meta.env.VITE_WEB3FORMS_KEY} />
           <input type="hidden" name="subject" value="Formulario de contacto" />
           <input type="hidden" name="from_name" value="cactustree.labs" />
           <input type="text" name="nombre" id="nombre" placeholder="NAME" autoComplete="given-name" required />
@@ -52,7 +52,7 @@ function Contact() {
           <textarea name="mensaje" id="mensaje" placeholder="MESSAGE" required></textarea>
           <input className='submit-form' type="submit" value="SUBMIT" />
         </form>
-        {formStatus && <p id="mensajeExito" style={{padding: 0, margin: 0}}>{formStatus}</p>}
+        {formStatus && <p id="mensajeExito" style={{ padding: 0, margin: 0 }}>{formStatus}</p>}
       </div>
     </div>
   );

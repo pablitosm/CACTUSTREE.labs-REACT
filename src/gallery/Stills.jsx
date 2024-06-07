@@ -1,7 +1,6 @@
 import React, { useEffect, useState, useCallback, useMemo } from 'react';
 import ColorThief from 'colorthief';
 
-import { Carousel } from 'react-responsive-carousel';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 
 import HeaderProjects from '../components/HeaderProjects';
@@ -44,23 +43,20 @@ function Stills() {
 
     useEffect(() => {
         const handleClassChange = () => {
-          if (document.body.classList.contains('dark')) {
-            setImageSrc('/img/stills-text-white.png');
-          } else {
-            setImageSrc('/img/stills-text.png');
-          }
+            if (document.body.classList.contains('dark')) {
+                setImageSrc('/img/stills-text-white.png');
+            } else {
+                setImageSrc('/img/stills-text.png');
+            }
         };
-    
-        // Initialize the correct image based on the initial class of the body
+
         handleClassChange();
-    
-        // Create a mutation observer to watch for changes to the class attribute on the body
+
         const observer = new MutationObserver(handleClassChange);
         observer.observe(document.body, { attributes: true, attributeFilter: ['class'] });
-    
-        // Cleanup the observer on component unmount
+
         return () => observer.disconnect();
-      }, []);
+    }, []);
 
     useEffect(() => {
         const handleResize = () => {
@@ -143,7 +139,7 @@ function Stills() {
             .map((item) => {
                 const distance = getColorDistance(item.color, selectedColor);
                 const similarity = 1 - (distance / maxDistance);
-                const size = selectedColor ? Math.max(baseSize, baseSize + 950 * Math.pow(similarity, 5)) : 150; // Ajuste de sensibilidad
+                const size = selectedColor ? Math.max(baseSize, baseSize + 950 * Math.pow(similarity, 5)) : 150;
                 return { img: item.img, size };
             });
     }, [colorData, selectedColor, getColorDistance, maxDistance, windowWidth]);

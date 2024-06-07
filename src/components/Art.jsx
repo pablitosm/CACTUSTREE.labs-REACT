@@ -23,14 +23,11 @@ function Art() {
       }
     };
 
-    // Initialize the correct image based on the initial class of the body
     handleClassChange();
 
-    // Create a mutation observer to watch for changes to the class attribute on the body
     const observer = new MutationObserver(handleClassChange);
     observer.observe(document.body, { attributes: true, attributeFilter: ['class'] });
 
-    // Cleanup the observer on component unmount
     return () => observer.disconnect();
   }, []);
 
@@ -134,7 +131,7 @@ function Art() {
       </Link>
       <div className="container-carousel-bottom">
         <Carousel
-        className='carousel-container'
+          className='carousel-container'
           responsive={responsive}
           showDots={false}
           infinite={true}

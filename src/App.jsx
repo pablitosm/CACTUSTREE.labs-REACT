@@ -26,6 +26,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './css/styles.css';
 
 function App() {
+  
   useEffect(() => {
     const text = document.querySelector('.text');
     if (text) {
