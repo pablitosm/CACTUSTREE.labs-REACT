@@ -1,32 +1,50 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import HeaderProjects from '../components/HeaderProjects';
 
 const Intro = () => {
+    const [imageSrc, setImageSrc] = useState('/img/tebay-text.png');
+
+    useEffect(() => {
+        window.scrollTo(0, 0);
+
+        const handleClassChange = () => {
+            if (document.body.classList.contains('dark')) {
+                setImageSrc('/img/tebay-text-white.png');
+            } else {
+                setImageSrc('/img/tebay-text.png');
+            }
+        };
+
+        // Initialize the correct image based on the initial class of the body
+        handleClassChange();
+
+        // Create a mutation observer to watch for changes to the class attribute on the body
+        const observer = new MutationObserver(handleClassChange);
+        observer.observe(document.body, { attributes: true, attributeFilter: ['class'] });
+
+        // Cleanup the observer on component unmount
+        return () => observer.disconnect();
+    }, []);
 
     return (
         <div className='container-all-intro'>
             <HeaderProjects />
             <div className="textContainerProyecto1">
-
                 <div className="container-header-intro">
                     <div className="text-container-intro-text-left">
-                        <img src="/img/tebay-text.png" alt="" />
+                        <img src={imageSrc} alt="" />
                     </div>
-
                     <div className="text-container-intro-text-right">
                         <p className="pieFoto">(Discover the daily life in one of the most remote resorts in the world,
                             where the snow is the protagonist and the only concern is the next day's adventure).
                         </p>
-
                         <p className="textoGrande">TEBAY let us record these images to make a short video about what
                             it is like to stay in a ski resort in the middle of one of the largest national parks in the world.
                         </p>
                     </div>
                 </div>
-
                 <div className="foto2 image1Proyecto1">
                     <div className="content-top-intro">
-
                         <div className="videoIframe" style={{ padding: '56.25% 0 0 0', position: 'relative' }}>
                             <iframe
                                 src="https://player.vimeo.com/video/903446448?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479&amp;autoplay=1"
@@ -37,7 +55,6 @@ const Intro = () => {
                             ></iframe>
                         </div>
                         <script src="https://player.vimeo.com/api/player.js"></script>
-
                         <table className="tableIntro">
                             <tbody>
                                 <tr>
@@ -78,7 +95,6 @@ const Intro = () => {
                             </tbody>
                         </table>
                     </div>
-
                     <div className="grid-container">
                         <div className="foto3">
                             <img src="/img_webp/ski/ski1.webp" alt="" />
@@ -107,7 +123,6 @@ const Intro = () => {
                     </div>
                 </div>
             </div>
-
             <div className="inner-cursor"></div>
             <div className="outer-cursor"></div>
         </div>

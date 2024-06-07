@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 function Footer() {
 
@@ -6,6 +6,22 @@ function Footer() {
   const [stillsText, setStillsText] = useState('STILLS');
   const [instagramText, setInstagramText] = useState('INSTAGRAM');
   const [youtubeText, setYoutubeText] = useState('YOUTUBE');
+  const [galleryText, setGalleryText] = useState('GALLERY');
+  const [darkMode, setDarkMode] = useState(localStorage.getItem('darkMode') === 'true');
+
+  useEffect(() => {
+    if (darkMode) {
+      document.body.classList.add('dark');
+    } else {
+      document.body.classList.remove('dark');
+    }
+  }, [darkMode]);
+
+  useEffect(() => {
+    if (localStorage.getItem('darkMode') === 'true') {
+      document.body.classList.add('dark');
+    }
+  }, []);
 
   const handleProjectsMouseEnter = () => {
     const random = Math.random();
@@ -60,7 +76,20 @@ function Footer() {
   const handleYoutubeMouseLeave = () => {
     setYoutubeText('YOUTUBE');
   };
-  
+
+  const handleGalleryMouseEnter = () => { // Cambia 'handleStillsMouseEnter' a 'handleGalleryMouseEnter'
+    setGalleryText('GALLE3Y'); // Cambia 'ST1LLS' a 'GALLE3Y'
+  };
+
+  const handleGalleryMouseLeave = () => { // Cambia 'handleStillsMouseLeave' a 'handleGalleryMouseLeave'
+    setGalleryText('GALLERY'); // Cambia 'STILLS' a 'GALLERY'
+  };
+
+  const handleDarkModeClick = () => {
+    setDarkMode(!darkMode);
+    localStorage.setItem('darkMode', !darkMode);
+  };
+
   return (
     <footer className="footerIndex">
       <table className="table-footer-index">
@@ -68,8 +97,8 @@ function Footer() {
 
           <tr>
             <td>
-              <a 
-                className="link-footer-index" 
+              <a
+                className="link-footer-index"
                 href="#projects"
                 onMouseEnter={handleProjectsMouseEnter}
                 onMouseLeave={handleProjectsMouseLeave}
@@ -78,10 +107,10 @@ function Footer() {
               </a>
             </td>
             <td className="rightAlign-footer-index">
-              <a 
-                className="link-footer-index" 
-                href="https://www.instagram.com/cactustree.labs/" 
-                target="_blank" 
+              <a
+                className="link-footer-index"
+                href="https://www.instagram.com/cactustree.labs/"
+                target="_blank"
                 rel="noreferrer"
                 onMouseEnter={handleInstagramMouseEnter}
                 onMouseLeave={handleInstagramMouseLeave}
@@ -92,8 +121,8 @@ function Footer() {
           </tr>
           <tr>
             <td>
-              <a 
-                className="link-footer-index" 
+              <a
+                className="link-footer-index"
                 href="#art"
                 onMouseEnter={handleStillsMouseEnter}
                 onMouseLeave={handleStillsMouseLeave}
@@ -102,10 +131,10 @@ function Footer() {
               </a>
             </td>
             <td className="rightAlign-footer-index">
-              <a 
-                className="link-footer-index" 
-                href="https://www.youtube.com/@whoiskolo" 
-                target="_blank" 
+              <a
+                className="link-footer-index"
+                href="https://www.youtube.com/@whoiskolo"
+                target="_blank"
                 rel="noreferrer"
                 onMouseEnter={handleYoutubeMouseEnter}
                 onMouseLeave={handleYoutubeMouseLeave}
@@ -114,6 +143,23 @@ function Footer() {
               </a>
             </td>
           </tr>
+          <tr>
+            <td>
+              <a
+                className="link-footer-index"
+                href="#art"
+                onMouseEnter={handleGalleryMouseEnter} // Cambia 'handleStillsMouseEnter' a 'handleGalleryMouseEnter'
+                onMouseLeave={handleGalleryMouseLeave} // Cambia 'handleStillsMouseLeave' a 'handleGalleryMouseLeave'
+              >
+                {galleryText}
+              </a>
+            </td>
+            <td 
+              className="rightAlign-footer-index" 
+              onClick={handleDarkModeClick}
+            >
+              DARK MODE: {darkMode ? 'ON' : 'OFF'}
+            </td>          </tr>
         </tbody>
       </table>
     </footer>

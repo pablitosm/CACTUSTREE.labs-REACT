@@ -40,6 +40,27 @@ function Stills() {
     const [colorData, setColorData] = useState([]);
     const [selectedColor, setSelectedColor] = useState(null);
     const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+    const [imageSrc, setImageSrc] = useState('/img/stills-text.png');
+
+    useEffect(() => {
+        const handleClassChange = () => {
+          if (document.body.classList.contains('dark')) {
+            setImageSrc('/img/stills-text-white.png');
+          } else {
+            setImageSrc('/img/stills-text.png');
+          }
+        };
+    
+        // Initialize the correct image based on the initial class of the body
+        handleClassChange();
+    
+        // Create a mutation observer to watch for changes to the class attribute on the body
+        const observer = new MutationObserver(handleClassChange);
+        observer.observe(document.body, { attributes: true, attributeFilter: ['class'] });
+    
+        // Cleanup the observer on component unmount
+        return () => observer.disconnect();
+      }, []);
 
     useEffect(() => {
         const handleResize = () => {
@@ -136,7 +157,7 @@ function Stills() {
                 <div className="container-header-stills">
 
                     <div className="text-container-stills-text-left">
-                        <img src="/img/stills-text.png" alt="" />
+                        <img src={imageSrc} alt="" />
                     </div>
 
                     <div className="text-container-stills-text-right">

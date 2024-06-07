@@ -1,13 +1,33 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 
 function Projects() {
+  const [imageSrc, setImageSrc] = useState('/img/projects-text.png');
+
+  useEffect(() => {
+    const handleClassChange = () => {
+      if (document.body.classList.contains('dark')) {
+        setImageSrc('/img/projects-text-white.png');
+      } else {
+        setImageSrc('/img/projects-text.png');
+      }
+    };
+
+    // Initialize the correct image based on the initial class of the body
+    handleClassChange();
+
+    // Create a mutation observer to watch for changes to the class attribute on the body
+    const observer = new MutationObserver(handleClassChange);
+    observer.observe(document.body, { attributes: true, attributeFilter: ['class'] });
+
+    // Cleanup the observer on component unmount
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <div className="projects terceraImagen" id="projects">
-      {/* <div className='projects-section'> */}
-        <img className="projects-section-image" src="/img/projects-text.png" alt="" />
-        <hr />
-      {/* </div> */}
+      <img className="projects-section-image" src={imageSrc} alt="" />
+      <hr />
       <div className="fila" id="contenido3">
         <div className="foto" id="projects1">
           <Link to="/intro">

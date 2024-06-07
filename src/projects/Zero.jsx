@@ -1,10 +1,32 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import HeaderProjects from '../components/HeaderProjects';
 
 const Intro = () => {
 
+  const [imageSrc, setImageSrc] = useState('/img/artgallery-text.png');
+
   useEffect(() => {
     window.scrollTo(0, 0);
+  }, []);
+
+  useEffect(() => {
+    const handleClassChange = () => {
+      if (document.body.classList.contains('dark')) {
+        setImageSrc('/img/zero-text-white.png');
+      } else {
+        setImageSrc('/img/zero-text.png');
+      }
+    };
+
+    // Initialize the correct image based on the initial class of the body
+    handleClassChange();
+
+    // Create a mutation observer to watch for changes to the class attribute on the body
+    const observer = new MutationObserver(handleClassChange);
+    observer.observe(document.body, { attributes: true, attributeFilter: ['class'] });
+
+    // Cleanup the observer on component unmount
+    return () => observer.disconnect();
   }, []);
 
   return (
@@ -13,7 +35,7 @@ const Intro = () => {
       <div className="textContainerProyecto1">
         <div className="container-header-zero">
           <div className="text-container-zero-text-left">
-            <img src="/img/zero-text.png" alt="" />
+            <img src={imageSrc} alt="" />
           </div>
           <div className="text-container-zero-text-right">
             <p className="pieFoto">(ZERØ tells the story of a boy exhausted by the monotony

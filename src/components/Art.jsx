@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -9,6 +9,30 @@ import 'react-multi-carousel/lib/styles.css';
 function Art() {
   const introImageUrls = Array.from({ length: 8 }, (_, index) => `/img_webp/intro/${index + 1}.webp`);
   const zeroImageUrls = Array.from({ length: 8 }, (_, index) => `/img_webp/zero/${index + 1}.webp`);
+  const [imageSrc, setImageSrc] = useState('/img/artgallery-text.png');
+  const [imageSrc1, setImageSrc1] = useState('/img/stills-text.png');
+
+  useEffect(() => {
+    const handleClassChange = () => {
+      if (document.body.classList.contains('dark')) {
+        setImageSrc('/img/artgallery-text-white.png');
+        setImageSrc1('/img/stills-text-white.png');
+      } else {
+        setImageSrc('/img/artgallery-text.png');
+        setImageSrc1('/img/stills-text.png');
+      }
+    };
+
+    // Initialize the correct image based on the initial class of the body
+    handleClassChange();
+
+    // Create a mutation observer to watch for changes to the class attribute on the body
+    const observer = new MutationObserver(handleClassChange);
+    observer.observe(document.body, { attributes: true, attributeFilter: ['class'] });
+
+    // Cleanup the observer on component unmount
+    return () => observer.disconnect();
+  }, []);
 
   const images = [...introImageUrls, ...zeroImageUrls].map((url) => ({
     src: url,
@@ -63,7 +87,7 @@ function Art() {
   return (
     <>
       <div className="art quintaImagen" id="art">
-        <img className="stills-section-image" src="/img/stills-text.png" alt="" />
+        <img className="stills-section-image" src={imageSrc1} alt="" />
         <hr />
         <Link to="/stills">
           <div id="myCarousel" className="carousel slide" data-bs-ride="carousel">
@@ -105,7 +129,7 @@ function Art() {
           </div>
         </div>
         <div className="cuartaImagen" id='gallery'>
-          <img className="img-artgallery" src="/img/artgallery-text.png" alt="" />
+          <img className="img-artgallery" src={imageSrc} alt="" />
         </div>
       </Link>
       <div className="container-carousel-bottom">

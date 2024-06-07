@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import HeaderProjects from '../components/HeaderProjects';
 
 const images = [
@@ -14,14 +14,38 @@ const images = [
     '/img/stills_preview/20.jpg', '/img/stills_preview/21.jpg', '/img/stills_preview/22.jpg', '/img/stills_preview/24.jpg'
 ];
 
-function ZeroContent() {
+function Photo() {
+    const [headerImageSrc, setHeaderImageSrc] = useState('/img/artgallery-text.png');
+
+    useEffect(() => {
+        window.scrollTo(0, 0);
+
+        const handleClassChange = () => {
+            if (document.body.classList.contains('dark')) {
+                setHeaderImageSrc('/img/artgallery-text-white.png');
+            } else {
+                setHeaderImageSrc('/img/artgallery-text.png');
+            }
+        };
+
+        // Initialize the correct image based on the initial class of the body
+        handleClassChange();
+
+        // Create a mutation observer to watch for changes to the class attribute on the body
+        const observer = new MutationObserver(handleClassChange);
+        observer.observe(document.body, { attributes: true, attributeFilter: ['class'] });
+
+        // Cleanup the observer on component unmount
+        return () => observer.disconnect();
+    }, []);
+
     return (
         <>
             <HeaderProjects />
             <div className="gallery-container-top">
                 <div className="container-header-gallery">
                     <div className="text-container-gallery-text-left">
-                        <img className="image-artgallery-gallery" src="/img/artgallery-text.png" alt="" />
+                        <img className="image-artgallery-gallery" src={headerImageSrc} alt="" />
                     </div>
                     <div className="text-container-gallery-text-right">
                         <p className="pieFoto">
@@ -48,4 +72,4 @@ function ZeroContent() {
     );
 }
 
-export default ZeroContent;
+export default Photo;
