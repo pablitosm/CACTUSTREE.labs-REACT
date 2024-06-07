@@ -77,15 +77,15 @@ const CustomCursor = () => {
       moveCursor(e);
 
       if (isCursorOverElement(e, proyectoUno)) {
-        showTextElement("intro");
+        showTextElement("INTRO");
       } else if (isCursorOverElement(e, proyectoDos)) {
-        showTextElement("zero");
+        showTextElement("ZERO");
       } else if (isCursorOverElement(e, proyectoTres)) {
-        showTextElement("tebay");
+        showTextElement("TEBAY");
       } else if (isCursorOverElement(e, quintaImagen)) {
-        showTextElement("stills");
+        showTextElement("STILLS");
       } else if (isCursorOverElement(e, cuartaImagen)) {
-        showTextElement("gallery");
+        showTextElement("GALLERY");
       } else {
         hideTextElement();
       }

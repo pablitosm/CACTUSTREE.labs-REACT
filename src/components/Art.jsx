@@ -110,6 +110,7 @@ function Art() {
       </Link>
       <div className="container-carousel-bottom">
         <Carousel
+        className='carousel-container'
           responsive={responsive}
           showDots={false}
           infinite={true}

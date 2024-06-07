@@ -50,7 +50,7 @@ function Contact() {
           <input type="email" name="email" id="email" placeholder="EMAIL" autoComplete="email" required />
           <label htmlFor="mensaje"></label>
           <textarea name="mensaje" id="mensaje" placeholder="MESSAGE" required></textarea>
-          <input type="submit" value="SUBMIT" />
+          <input className='submit-form' type="submit" value="SUBMIT" />
         </form>
         {formStatus && <p id="mensajeExito" style={{padding: 0, margin: 0}}>{formStatus}</p>}
       </div>

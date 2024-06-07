@@ -29,7 +29,7 @@ const Intro = () => {
 
                         <div className="videoIframe" style={{ padding: '56.25% 0 0 0', position: 'relative' }}>
                             <iframe
-                                src="https://player.vimeo.com/video/903441649?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479&amp;autoplay=1"
+                                src="https://player.vimeo.com/video/903446448?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479&amp;autoplay=1"
                                 frameBorder="0"
                                 allow="autoplay; fullscreen; picture-in-picture"
                                 style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%' }}
@@ -43,63 +43,36 @@ const Intro = () => {
                                 <tr>
                                     <td className="textoMidNegrita" style={{ textAlign: 'right', verticalAlign: 'top', paddingTop: 20, paddingRight: 20 }}>
                                         <p className="textTableIntro negritaIntro">DIRECTOR</p>
-                                        <p className="textTableIntro ">&#215;</p>
-                                        <p className="textTableIntro ">&#215;</p>
                                     </td>
                                     <td className="textoMid" style={{ textAlign: 'left' }}>
-                                        <p className="textTableIntro">ARTURO MARTIN</p>
-                                        <p className="textTableIntro">ALEXANDRO GRACIA</p>
-                                        <p className="textTableIntro">NURIA PEREZ</p>
+                                        <p className="textTableIntro">ARTURO POLO ENA</p>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td className="textoMidNegrita" style={{ textAlign: 'right', verticalAlign: 'top', paddingTop: 20, paddingRight: 20 }}>
-                                        <p className="textTableIntro negritaIntro">DOP</p>
-                                        <p className="textTableIntro ">&#215;</p>
-                                        <p className="textTableIntro ">&#215;</p>
-                                    </td>
-                                    <td className="textoMid" style={{ textAlign: 'left' }}>
-                                        <p className="textTableIntro">ARTURO MARTIN</p>
-                                        <p className="textTableIntro">ALEXANDRO GRACIA</p>
-                                        <p className="textTableIntro">NURIA PEREZ</p>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td className="textoMidNegrita" style={{ textAlign: 'right', verticalAlign: 'top', paddingTop: 20, paddingRight: 20 }}>
-                                        <p className="textTableIntro negritaIntro">SCREENPLAY</p>
+                                        <p className="textTableIntro negritaIntro">CAMERA</p>
                                         <p className="textTableIntro ">&#215;</p>
                                     </td>
                                     <td className="textoMid" style={{ textAlign: 'left' }}>
-                                        <p className="textTableIntro">ARTURO MARTIN</p>
-                                        <p className="textTableIntro">ALEXANDRO GRACIA</p>
+                                        <p className="textTableIntro">ARTURO POLO ENA</p>
+                                        <p className="textTableIntro">JAY CLAUS</p>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td className="textoMidNegrita" style={{ textAlign: 'right', verticalAlign: 'top', paddingTop: 20, paddingRight: 20 }}>
-                                        <p className="textTableIntro negritaIntro">PRODUCTION AND EDITING</p>
-                                        <p className="textTableIntro">&#215;</p>
+                                        <p className="textTableIntro negritaIntro">POST PRODUCTOR</p>
                                     </td>
                                     <td className="textoMid" style={{ textAlign: 'left' }}>
                                         <p className="textTableIntro">ARTURO MARTIN</p>
-                                        <p className="textTableIntro">ALEXANDRO GRACIA</p>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td className="textoMidNegrita" style={{ textAlign: 'right', verticalAlign: 'top', paddingTop: 20, paddingRight: 20 }}>
-                                        <p className="textTableIntro negritaIntro">CAMERA OPERATOR</p>
-                                        <p className="textTableIntro">&#215;</p>
+                                        <p className="textTableIntro negritaIntro">CONCEPT</p>
                                     </td>
                                     <td className="textoMid" style={{ textAlign: 'left' }}>
-                                        <p className="textTableIntro">ARTURO MARTIN</p>
+                                        <p className="textTableIntro">ARTURO POLO ENA</p>
                                         <p className="textTableIntro">ALEXANDRO GRACIA</p>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td className="textoMidNegrita" style={{ textAlign: 'right', verticalAlign: 'top', paddingTop: 20, paddingRight: 20 }}>
-                                        <p className="textTableIntro negritaIntro">CASTING</p>
-                                    </td>
-                                    <td className="textoMid" style={{ textAlign: 'left' }}>
-                                        <p className="textTableIntro">LUCIA ROVIRA</p>
                                     </td>
                                 </tr>
                             </tbody>

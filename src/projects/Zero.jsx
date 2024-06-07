@@ -1,7 +1,11 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import HeaderProjects from '../components/HeaderProjects';
 
 const Intro = () => {
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   return (
     <div className='container-all-intro'>
@@ -28,7 +32,7 @@ const Intro = () => {
               </a> and the collaboration of friends and colleagues.</p>
           </div>
         </div>
-  
+
         <div className="foto2 image1Proyecto1">
           <div className="content-top-intro">
             <div className="videoIframe" style={{ padding: '42.37% 0 0 0', position: 'relative' }}>
@@ -136,7 +140,7 @@ const Intro = () => {
               </table>
             </div>
           </div>
-  
+
           <div className="grid-container">
             <div className="foto3">
               <img src="/img_webp/zero/1.webp" alt="" />

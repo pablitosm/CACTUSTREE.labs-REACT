@@ -1,7 +1,11 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import HeaderProjects from '../components/HeaderProjects';
 
 const Intro = () => {
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   return (
     <div className='container-all-intro'>

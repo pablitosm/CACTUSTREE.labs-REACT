@@ -17,9 +17,7 @@ function Projects() {
               <div className="project-text view-more">VIEW MORE &#8677;</div>
             </div>
             <div className="imagen1-hover">
-              <video autoPlay muted loop playsInline style={{ width: '100%' }} onMouseOver={(e) => e.target.play()}>
-                <source src="/media/teaser_intro.mp4" type="video/mp4" />
-              </video>
+              <img src="/media/teaser_intro.gif" alt="GIF" />
             </div>
           </Link>
         </div>
@@ -31,9 +29,7 @@ function Projects() {
               <div className="project-text view-more">VIEW MORE &#8677;</div>
             </div>
             <div className="imagen1-hover">
-              <video autoPlay muted loop playsInline style={{ width: '100%' }} onMouseOver={(e) => e.target.play()}>
-                <source src="/media/teaser_zero.mp4" type="video/mp4" />
-              </video>
+              <img src="/media/teaser_zero.gif" alt="GIF" />
             </div>
           </Link>
         </div>
@@ -45,9 +41,7 @@ function Projects() {
               <div className="project-text view-more" style={{color : "#0e1111"}}>VIEW MORE &#8677;</div>
             </div>
             <div className="imagen1-hover">
-              <video autoPlay muted loop playsInline style={{ width: '100%' }} onMouseOver={(e) => e.target.play()}>
-                <source src="/media/teaser_ski.mp4" type="video/mp4" />
-              </video>
+              <img src="/media/teaser_ski.gif" alt="GIF" />
             </div>
           </Link>
         </div>
