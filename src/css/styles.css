@@ -221,7 +221,7 @@ p {
     background-color: #fff;
     mix-blend-mode: difference;
     pointer-events: none;
-    z-index: 5000;
+    z-index: 10001;
 }
 
 .outer-cursor {
@@ -235,7 +235,7 @@ p {
     background-color: transparent;
     mix-blend-mode: difference;
     pointer-events: none;
-    z-index: 5001;
+    z-index: 10001;
 }
 
 .projects,
@@ -315,6 +315,10 @@ p {
 .navbar a:hover::after,
 .navbar a.active::after {
     height: 100%;
+}
+
+.container-navegacion {
+    z-index: -1;
 }
 
 .navbar ul {
@@ -489,7 +493,11 @@ p {
     .text-container-ski-text-left,
     .text-container-ski-text-right,
     .text-container-intro-text-left,
-    .text-container-intro-text-right {
+    .text-container-intro-text-right,
+    .text-container-zero-text-left-photo,
+    .text-container-intro-text-left-photo,
+    .text-container-ski-text-left-photo,
+    .text-container-photos-text-left-photo {
         width: 100% !important;
     }
 
@@ -852,12 +860,13 @@ textarea:hover {
     height: 100vh;
     content: "";
     opacity: .05;
-    z-index: 1000;
+    z-index: 100000;
     pointer-events: none;
     background: url(noise.gif);
 }
 
 .navbar-top ul {
+    cursor: pointer;
     display: flex;
     justify-content: space-between;
 }
@@ -1005,6 +1014,25 @@ textarea:hover {
 .container-header-stills,
 .container-header-gallery {
     display: flex;
+}
+
+.image-container-photo-top img {
+    width: 100%;
+    padding: 7.5px 7.5px 0 7.5px;
+}
+
+.text-container-zero-text-left-photo {
+    display: flex;
+    width: 25%;
+    margin: 0 0 15px 0;
+}
+
+.text-container-ski-text-left-photo,
+.text-container-intro-text-left-photo,
+.text-container-photos-text-left-photo {
+    display: flex;
+    width: 25%;
+    margin: 15px 0 15px 0;  
 }
 
 .text-container-intro-text-left,
@@ -1182,7 +1210,7 @@ textarea:hover {
 }
 
 .gallery-container-bottom {
-    padding: 0 15px 0 15px;
+    padding: 15px;
     background-color: var(--color-oscuro);
 }
 
@@ -1245,4 +1273,23 @@ textarea:hover {
 
 .carousel-container:hover .custom-arrow {
     opacity: 1;
+}
+
+/* Estilos para desktop */
+.gallery-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-top: 15px;
+}
+
+.grid-item {
+    flex: 1 1 calc(25% - 15px);
+    box-sizing: border-box;
+}
+
+@media (max-width: 1000px) {
+    .grid-item {
+        flex: 1 1 calc(50% - 15px);
+    }
 }

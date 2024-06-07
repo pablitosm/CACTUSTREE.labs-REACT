@@ -4,6 +4,10 @@ import HeaderProjects from './HeaderProjects';
 function Header() {
   const [showHeaderProjects, setShowHeaderProjects] = useState(false);
 
+  const [projectsText, setProjectsText] = useState('PROJECTS');
+  const [artGalleryText, setArtGalleryText] = useState('ART.GALLERY');
+  const [contactText, setContactText] = useState('CONTACT');
+
   useEffect(() => {
     const adjustMargin = () => {
       const containerNavegacion = document.querySelector('.container-navegacion');
@@ -62,6 +66,45 @@ function Header() {
     };
   }, []);
 
+  const handleProjectsMouseEnter = () => {
+    const random = Math.random();
+    if (random < 0.5) {
+      setProjectsText('PROJ3CTS');
+    } else {
+      setProjectsText('PR*JECTS');
+    }
+  };
+
+  const handleProjectsMouseLeave = () => {
+    setProjectsText('PROJECTS');
+  };
+
+  const handleArtGalleryMouseEnter = () => {
+    const random = Math.random();
+    if (random < 0.5) {
+      setArtGalleryText('ART.G@LLERY');
+    } else {
+      setArtGalleryText('ART.GALL3RY');
+    }
+  };
+
+  const handleArtGalleryMouseLeave = () => {
+    setArtGalleryText('ART.GALLERY');
+  };
+
+  const handleContactMouseEnter = () => {
+    const random = Math.random();
+    if (random < 0.5) {
+      setContactText('C0NTACT');
+    } else {
+      setContactText('CONT@CT');
+    }
+  };
+
+  const handleContactMouseLeave = () => {
+    setContactText('CONTACT');
+  };
+
   return (
     <>
       <nav className="navbar-index">
@@ -70,15 +113,39 @@ function Header() {
             <ul>
               <div className="navbar-left">
                 <li>
-                  <a href="/#projects" className="nav-link projects-navbar" data-section-name="PROJECTS">PROJECTS</a>
+                  <a
+                    href="/#projects"
+                    className="nav-link projects-navbar"
+                    data-section-name="PROJECTS"
+                    onMouseEnter={handleProjectsMouseEnter}
+                    onMouseLeave={handleProjectsMouseLeave}
+                  >
+                    {projectsText}
+                  </a>
                 </li>
                 <li>
-                  <a href="/#art" className="nav-link" data-section-name="ART GALLERY">ART.GALLERY</a>
+                  <a
+                    href="/#art"
+                    className="nav-link"
+                    data-section-name="ART GALLERY"
+                    onMouseEnter={handleArtGalleryMouseEnter}
+                    onMouseLeave={handleArtGalleryMouseLeave}
+                  >
+                    {artGalleryText}
+                  </a>
                 </li>
               </div>
               <div className="navbar-right">
                 <li>
-                  <a href="/#contact" className="nav-link" data-section-name="CONTACT">CONTACT</a>
+                  <a
+                    href="/#contact"
+                    className="nav-link"
+                    data-section-name="CONTACT"
+                    onMouseEnter={handleContactMouseEnter}
+                    onMouseLeave={handleContactMouseLeave}
+                  >
+                    {contactText}
+                  </a>
                 </li>
               </div>
             </ul>
