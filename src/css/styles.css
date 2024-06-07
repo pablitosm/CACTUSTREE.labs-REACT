@@ -1292,12 +1292,12 @@ textarea {
 }
 
 input[type="submit"]:hover {
-    background-color: #ca0000;
+    background-color: #3e3e3e;
 }
 
 input:hover,
 textarea:hover {
-    border-bottom: 2px solid #a2a2a2;
+    border-bottom: 3px solid #3e3e3e;
 }
 
 .container-Art {
