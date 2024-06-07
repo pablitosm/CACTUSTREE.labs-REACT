@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 
 function Contact() {
   const [formStatus, setFormStatus] = useState('');
-  const web3formsKey = import.meta.env.VITE_WEB3FORMS_KEY;
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -23,8 +22,6 @@ function Contact() {
         setFormStatus('ERROR SUBMITTING FORM. PLEASE TRY AGAIN.');
       }
     } catch (error) {
-      console.log(web3formsKey)
-      console.log(error.message)
       setFormStatus('ERROR SUBMITTING FORM. PLEASE TRY AGAIN.');
     }
   };
@@ -44,9 +41,8 @@ function Contact() {
       </div>
       <div className="top-content-contact rightContent" style={{ padding: '0 15px 0 15px', width: '100%' }}>
         <h2>CONTACT</h2>
-        {web3formsKey ? (
         <form id="miFormulario" method="POST" onSubmit={handleSubmit}>
-          <input type="hidden" name="access_key" value={web3formsKey} /> 
+          <input type="hidden" name="access_key" value={import.meta.env.VITE_WEB3FORMS_KEY} /> 
           <input type="hidden" name="subject" value="Formulario de contacto" />
           <input type="hidden" name="from_name" value="cactustree.labs" />
           <input type="text" name="nombre" id="nombre" placeholder="NAME" autoComplete="given-name" required />
@@ -56,9 +52,6 @@ function Contact() {
           <textarea name="mensaje" id="mensaje" placeholder="MESSAGE" required></textarea>
           <input className='submit-form' type="submit" value="SUBMIT" />
         </form>
-        ) : (
-          <p>Loading...</p>
-        )}
         {formStatus && <p id="mensajeExito" style={{padding: 0, margin: 0}}>{formStatus}</p>}
       </div>
     </div>
