@@ -13,9 +13,9 @@ const Intro = () => {
   useEffect(() => {
     const handleClassChange = () => {
       if (document.body.classList.contains('dark')) {
-        setImageSrc('/img/zero-text-white.png');
+        setImageSrc('/img/intro-text-white.png');
       } else {
-        setImageSrc('/img/zero-text.png');
+        setImageSrc('/img/intro-text.png');
       }
     };
 
