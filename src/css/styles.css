@@ -41,6 +41,18 @@ body.dark {
     --color-submit-button: #3e3e3e;
 }
 
+::selection {
+    background: red;
+}
+
+::-moz-selection {
+    background: red;
+}
+
+::-webkit-selection {
+    background: red;
+}
+
 * {
     font-family: 'JetBrains Mono', Arial, sans-serif;
     box-sizing: border-box;
@@ -1314,7 +1326,7 @@ textarea:hover {
 }
 
 .color-hex {
-    /*  */
+    color: var(--color-texto);
     padding: 0 15px 0 15px;
 }
 
