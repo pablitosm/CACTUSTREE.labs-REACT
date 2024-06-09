@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import ColorThief from 'colorthief';
 import HeaderProjects from '../components/HeaderProjects';
 
 const zeroImages = [
@@ -53,7 +54,6 @@ const artGalleryImages = [
     '/img/artgallery_webp/16.webp'
 ];
 
-
 function Photo() {
     const [headerImageSrc, setHeaderImageSrc] = useState('/img/artgallery-text.png');
     const [zeroImageSrc, setHeaderImageSrc1] = useState('/img/zero-text.png');
@@ -66,6 +66,10 @@ function Photo() {
     const [skiActiveIndex, setSkiActiveIndex] = useState(0);
     const [photosActiveIndex, setPhotosActiveIndex] = useState(0);
 
+    const [zeroPalettes, setZeroPalettes] = useState([]);
+    const [skiPalettes, setSkiPalettes] = useState([]);
+    const [introPalettes, setIntroPalettes] = useState([]);
+    const [artGalleryPalettes, setArtGalleryPalettes] = useState([]);
 
     useEffect(() => {
         window.scrollTo(0, 0);
@@ -94,6 +98,24 @@ function Photo() {
         return () => observer.disconnect();
     }, []);
 
+    useEffect(() => {
+        const loadPalettes = async (images, setPalettes) => {
+            const colorThief = new ColorThief();
+            const palettes = await Promise.all(images.map(src => new Promise((resolve) => {
+                const img = new Image();
+                img.src = src;
+                img.crossOrigin = 'Anonymous';
+                img.onload = () => resolve(colorThief.getPalette(img, 5));
+            })));
+            setPalettes(palettes);
+        };
+
+        loadPalettes(zeroImages, setZeroPalettes);
+        loadPalettes(skiImages, setSkiPalettes);
+        loadPalettes(introImages, setIntroPalettes);
+        loadPalettes(artGalleryImages, setArtGalleryPalettes);
+    }, []);
+
     const goToZeroSlide = (index) => {
         setZeroActiveIndex(index);
         document.querySelector(`#zeroCarousel .carousel-item.active`).classList.remove('active');
@@ -117,7 +139,24 @@ function Photo() {
         document.querySelector(`#photosCarousel .carousel-item.active`).classList.remove('active');
         document.querySelectorAll(`#photosCarousel .carousel-item`)[index].classList.add('active');
     };
-    
+
+    const rgbToHex = (rgb) => {
+        const hex = rgb.map(value => {
+            const hexValue = value.toString(16);
+            return hexValue.length === 1 ? '0' + hexValue : hexValue;
+        }).join('');
+        return `#${hex}`;
+    };
+
+    const renderPalette = (palette) => (
+        <div className="palette">
+            <div className="color-box-main" style={{ backgroundColor: `rgb(${palette[0].join(',')})` }}></div>
+            {palette.slice(1).map((color, index) => (
+                <div key={index} className="color-box-gallery" style={{ backgroundColor: `rgb(${color.join(',')})` }}></div>
+            ))}
+            <span className="color-hex">{rgbToHex(palette[0])}</span>
+        </div>
+    );
 
     return (
         <>
@@ -138,11 +177,9 @@ function Photo() {
                 </div>
             </div>
             <div className="gallery-container-bottom">
-
                 <div className="text-container-zero-text-left-photo">
                     <img src={zeroImageSrc} alt="" />
                 </div>
-
                 <div id="zeroCarousel" className="carousel slide" data-bs-ride="carousel">
                     <div className="carousel-indicators">
                         {zeroImages.map((_, index) => (
@@ -173,19 +210,21 @@ function Photo() {
                         ))}
                     </div>
                 </div>
-
                 <div className="gallery-grid">
                     {zeroImages.map((image, index) => (
-                        <div key={index} className="grid-item" onClick={() => goToZeroSlide(index)}>
+                        <div key={index} className="grid-item" onMouseEnter={() => goToZeroSlide(index)}>
                             <img src={image} alt={`Zero image ${index + 1}`} />
+                            {zeroPalettes[index] && (
+                                <div className="palette-container">
+                                    {renderPalette(zeroPalettes[index])}
+                                </div>
+                            )}
                         </div>
                     ))}
                 </div>
-
                 <div className="text-container-ski-text-left-photo">
                     <img src={skiImageSrc} alt="" />
                 </div>
-
                 <div id="skiCarousel" className="carousel slide" data-bs-ride="carousel">
                     <div className="carousel-indicators">
                         {skiImages.map((_, index) => (
@@ -216,19 +255,21 @@ function Photo() {
                         ))}
                     </div>
                 </div>
-
                 <div className="gallery-grid">
-                {skiImages.map((image, index) => (
-                        <div key={index} className="grid-item" onClick={() => goToSkiSlide(index)}>
+                    {skiImages.map((image, index) => (
+                        <div key={index} className="grid-item" onMouseEnter={() => goToSkiSlide(index)}>
                             <img src={image} alt={`Ski image ${index + 1}`} />
+                            {skiPalettes[index] && (
+                                <div className="palette-container">
+                                    {renderPalette(skiPalettes[index])}
+                                </div>
+                            )}
                         </div>
                     ))}
                 </div>
-
                 <div className="text-container-intro-text-left-photo">
                     <img src={introImageSrc} alt="" />
                 </div>
-
                 <div id="introCarousel" className="carousel slide" data-bs-ride="carousel">
                     <div className="carousel-indicators">
                         {introImages.map((_, index) => (
@@ -254,31 +295,33 @@ function Photo() {
                         </button>
                         {introImages.map((image, index) => (
                             <div key={index} className={`carousel-item ${index === 0 ? 'active' : ''}`}>
-                                <img src={image} alt={`Art Gallery image ${index + 1}`} />
+                                <img src={image} alt={`Intro image ${index + 1}`} />
                             </div>
                         ))}
                     </div>
                 </div>
-
                 <div className="gallery-grid">
-                {introImages.map((image, index) => (
-                        <div key={index} className="grid-item" onClick={() => goToIntroSlide(index)}>
-                            <img src={image} alt={`Photos image ${index + 1}`} />
+                    {introImages.map((image, index) => (
+                        <div key={index} className="grid-item" onMouseEnter={() => goToIntroSlide(index)}>
+                            <img src={image} alt={`Intro image ${index + 1}`} />
+                            {introPalettes[index] && (
+                                <div className="palette-container">
+                                    {renderPalette(introPalettes[index])}
+                                </div>
+                            )}
                         </div>
                     ))}
                 </div>
-
                 <div className="text-container-photos-text-left-photo">
                     <img src={photosImageSrc} alt="" />
                 </div>
-
                 <div id="photosCarousel" className="carousel slide" data-bs-ride="carousel">
                     <div className="carousel-indicators">
                         {artGalleryImages.map((_, index) => (
                             <button
                                 key={index}
                                 type="button"
-                                data-bs-target="#artGalleryCarousel"
+                                data-bs-target="#photosCarousel"
                                 data-bs-slide-to={index}
                                 className={index === 0 ? 'active' : ''}
                                 aria-current={index === 0 ? 'true' : 'false'}
@@ -287,26 +330,30 @@ function Photo() {
                         ))}
                     </div>
                     <div className="carousel-inner position-relative">
-                        <button className="carousel-control-prev custom-control-prev" type="button" data-bs-target="#artGalleryCarousel" data-bs-slide="prev">
+                        <button className="carousel-control-prev custom-control-prev" type="button" data-bs-target="#photosCarousel" data-bs-slide="prev">
                             <span className="carousel-control-prev-icon custom-icon" aria-hidden="true"></span>
                             <span className="visually-hidden">Previous</span>
                         </button>
-                        <button className="carousel-control-next custom-control-next" type="button" data-bs-target="#artGalleryCarousel" data-bs-slide="next">
+                        <button className="carousel-control-next custom-control-next" type="button" data-bs-target="#photosCarousel" data-bs-slide="next">
                             <span className="carousel-control-next-icon custom-icon" aria-hidden="true"></span>
                             <span className="visually-hidden">Next</span>
                         </button>
                         {artGalleryImages.map((image, index) => (
                             <div key={index} className={`carousel-item ${index === 0 ? 'active' : ''}`}>
-                                <img src={image} alt={`Art Gallery image ${index + 1}`} />
+                                <img src={image} alt={`Photos image ${index + 1}`} />
                             </div>
                         ))}
                     </div>
                 </div>
-
                 <div className="gallery-grid">
-                {artGalleryImages.map((image, index) => (
-                        <div key={index} className="grid-item" onClick={() => goToPhotosSlide(index)}>
+                    {artGalleryImages.map((image, index) => (
+                        <div key={index} className="grid-item" onMouseEnter={() => goToPhotosSlide(index)}>
                             <img src={image} alt={`Photos image ${index + 1}`} />
+                            {artGalleryPalettes[index] && (
+                                <div className="palette-container">
+                                    {renderPalette(artGalleryPalettes[index])}
+                                </div>
+                            )}
                         </div>
                     ))}
                 </div>

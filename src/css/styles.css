@@ -120,7 +120,7 @@ footer {
     text-align: left;
     padding: 7.5px 15px 15px 15px;
     bottom: 0;
-    font-size: 1.8vh;
+    /* font-size: 8vh; */
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -1292,4 +1292,33 @@ textarea:hover {
     .grid-item {
         flex: 1 1 calc(50% - 15px);
     }
+}
+
+.palette-container {
+    display: flex;
+    align-items: center;
+    margin-top: 5px;
+}
+
+.palette {
+    display: flex;
+}
+
+.color-box-main {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    font-weight: bold;
+    margin-right: 6px;
+}
+
+.color-hex {
+    /*  */
+    padding: 0 15px 0 15px;
+}
+
+.color-box-gallery {
+    width: 20px;
+    height: 20px;
 }
