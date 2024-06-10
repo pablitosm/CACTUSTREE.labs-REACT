@@ -513,6 +513,14 @@ p {
         width: 100% !important;
     }
 
+    .text-container-intro-text-right {
+        text-align: justify;
+    }
+
+    .pieFoto {
+        text-align: justify;
+    }
+
     .text-container-stills-text-right {
         padding: 0 !important;
     }
@@ -1024,7 +1032,8 @@ textarea:hover {
 .container-header-intro,
 .container-header-zero,
 .container-header-stills,
-.container-header-gallery {
+.container-header-gallery,
+.container-flex {
     display: flex;
 }
 
@@ -1039,12 +1048,24 @@ textarea:hover {
     margin: 0 0 15px 0;
 }
 
-.text-container-ski-text-left-photo,
 .text-container-intro-text-left-photo,
 .text-container-photos-text-left-photo {
-    display: flex;
     width: 25%;
-    margin: 15px 0 15px 0;  
+    display: flex;
+    margin: 15px 7.5px 15px 0;
+}
+
+.text-container-ski-text-left-photo {
+    width: 25%;
+    display: flex;
+    margin: 15px 7.5px 15px 0;
+
+}
+
+.text-container-photos-text-left-photo {
+    width: 30%;
+    display: flex;
+    margin: 15px 7.5px 15px 0;
 }
 
 .text-container-intro-text-left,

@@ -177,8 +177,20 @@ function Photo() {
                 </div>
             </div>
             <div className="gallery-container-bottom">
-                <div className="text-container-zero-text-left-photo">
-                    <img src={zeroImageSrc} alt="" />
+                <div className="container-header-intro">
+                    <div className="text-container-zero-text-left-photo">
+                        <img src={zeroImageSrc} alt="" />
+                    </div>
+                    <div className="text-container-intro-text-right">
+                        <p className="pieFoto">(ZERØ tells the story of a boy exhausted by the monotony
+                            of life, feeling that nothing has any meaning anymore. In a desperate act,
+                            he decides to dive into a bathtub, uncertain whether he will emerge or simply
+                            get lost in the depths of his own existence).
+                        </p>
+                        <p className="textoGrande">ZERØ is a personal project that I was able to carry out
+                            thanks to a crowdfunding and the collaboration of friends and colleagues.
+                        </p>
+                    </div>
                 </div>
                 <div id="zeroCarousel" className="carousel slide" data-bs-ride="carousel">
                     <div className="carousel-indicators">
@@ -222,8 +234,20 @@ function Photo() {
                         </div>
                     ))}
                 </div>
-                <div className="text-container-ski-text-left-photo">
-                    <img src={skiImageSrc} alt="" />
+                <div className="container-header-intro">
+
+                    <div className="text-container-ski-text-left-photo">
+                        <img src={skiImageSrc} alt="" />
+                    </div>
+                    <div className="text-container-intro-text-right">
+                        <p className="pieFoto">(Discover the daily life in one of the most remote resorts in the world,
+                            where the snow is the protagonist and the only concern is the next day's adventure).
+                        </p>
+                        <p className="textoGrande">TEBAY let us record these images to make a short video about what
+                            it is like to stay in a ski resort in the middle of one of the largest national parks in the world.
+                        </p>
+                    </div>
+
                 </div>
                 <div id="skiCarousel" className="carousel slide" data-bs-ride="carousel">
                     <div className="carousel-indicators">
@@ -267,9 +291,21 @@ function Photo() {
                         </div>
                     ))}
                 </div>
-                <div className="text-container-intro-text-left-photo">
-                    <img src={introImageSrc} alt="" />
+
+                <div className="container-header-intro">
+                    <div className="text-container-intro-text-left-photo">
+                        <img src={introImageSrc} alt="" />
+                    </div>
+
+                    <div className="text-container-intro-text-right">
+                        <p className="pieFoto">
+                            (INTRO is the story of a teenage girl who is going through a bad period in her life, she has just had a breakup and it is not being easy for her to get over it. In the video you can see how she tries to be well and enjoy her life going out partying, but in her head she cant stop thinking about the last conversation they had and how it ended).
+                        </p>
+                        <p className="textoGrande">intro is the making of a video clip about the problems facing teenagers in the 21st century.</p>
+                    </div>
                 </div>
+
+
                 <div id="introCarousel" className="carousel slide" data-bs-ride="carousel">
                     <div className="carousel-indicators">
                         {introImages.map((_, index) => (
@@ -312,8 +348,17 @@ function Photo() {
                         </div>
                     ))}
                 </div>
-                <div className="text-container-photos-text-left-photo">
-                    <img src={photosImageSrc} alt="" />
+                <div className="container-header-intro">
+                    <div className="text-container-photos-text-left-photo">
+                        <img src={photosImageSrc} alt="" />
+                    </div>
+
+                    <div className="text-container-intro-text-right">
+                        <p className="pieFoto">
+                            (INTRO is the story of a teenage girl who is going through a bad period in her life, she has just had a breakup and it is not being easy for her to get over it. In the video you can see how she tries to be well and enjoy her life going out partying, but in her head she cant stop thinking about the last conversation they had and how it ended).
+                        </p>
+                        <p className="textoGrande">intro is the making of a video clip about the problems facing teenagers in the 21st century.</p>
+                    </div>
                 </div>
                 <div id="photosCarousel" className="carousel slide" data-bs-ride="carousel">
                     <div className="carousel-indicators">
