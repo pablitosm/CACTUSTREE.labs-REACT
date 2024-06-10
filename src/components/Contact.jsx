@@ -9,16 +9,10 @@ function Contact() {
     const form = e.target;
     const formData = new FormData(form);
 
-    const jsonFormData = {};
-    formData.forEach((value, key) => {
-      jsonFormData[key] = value;
-    });
-
     try {
-      const response = await fetch('/api/submit', {
+      const response = await fetch('https://api.web3forms.com/submit', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(jsonFormData)
+        body: formData
       });
 
       if (response.ok) {
