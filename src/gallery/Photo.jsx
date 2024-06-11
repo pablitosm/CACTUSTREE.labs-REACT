@@ -168,7 +168,7 @@ function Photo() {
                     </div>
                     <div className="text-container-gallery-text-right">
                         <p className="pieFoto">
-                            THIS IS A COMPILATION OF ALL MY PHOTOS ORDERED BY PROJECTS ZERO, INTRO AND SKI AND DIFFERENT PHOTOS THAT I TAKE, EACH ONE TELLS A DIFFERENT HISTORY.
+                            THIS IS A COMPILATION OF ALL MY PHOTOS ORDERED BY ZERO, INTRO AND SKI AND DIFFERENT PHOTOS THAT I TAKE, EACH ONE TELLS A DIFFERENT HISTORY.
                         </p>
                     </div>
                 </div>
